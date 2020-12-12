@@ -10,13 +10,15 @@ import { FormsModule } from '@angular/forms';
 import { SpaComponent } from './components/spa/spa.component';
 import { NavbarComponent } from './components/spa/partials/navbar/navbar.component';
 import { VideoInicioComponent } from './components/spa/partials/video-inicio/video-inicio.component';
+import { BannerverdeComponent } from './components/spa/partials/bannerverde/bannerverde.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SpaComponent,
     NavbarComponent,
-    VideoInicioComponent
+    VideoInicioComponent,
+    BannerverdeComponent
   ],
   imports: [
     BrowserModule,
