@@ -7,10 +7,14 @@ import { AppComponent } from './app.component';
 
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { FormsModule } from '@angular/forms';
+import { SpaComponent } from './components/spa/spa.component';
+import { NavbarComponent } from './components/spa/partials/navbar/navbar.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SpaComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
