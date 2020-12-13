@@ -2,17 +2,35 @@
 <div class="container">
   <p class="p-responsive titulo text-center">REGISTRATE</p>
 
-  <div class="row">
-    <div class="col">
+  <div class="card-deck">
+    <mdb-card>
       <a (click)="EmpresaRegistro()">
-        <img class="imgh" src="../../../../assets/vender.png" alt="" />
+        <div class="" mdbWavesEffect>
+          <mdb-card-img
+            src="../../../../assets/vender.png"
+            alt="Card image cap"
+          ></mdb-card-img>
+          <a>
+            <!-- <div class=""></div> -->
+          </a>
+        </div>
       </a>
-    </div>
-    <div class="col">
+    </mdb-card>
+    <mdb-card>
       <a (click)="RegistroCliente()">
-        <img class="imgh" src="../../../../assets/comprar.png" alt="" />
+        <div class="" mdbWavesEffect>
+          <span class="minibloque"></span>
+
+          <mdb-card-img
+            src="../../../../assets/comprar.png"
+            alt="Card image cap"
+          ></mdb-card-img>
+          <a>
+            <div class="mask"></div>
+          </a>
+        </div>
       </a>
-    </div>
+    </mdb-card>
   </div>
 </div>
-<app-footer></app-footer>
+<app-footer ></app-footer>
