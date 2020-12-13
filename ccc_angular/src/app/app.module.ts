@@ -12,6 +12,7 @@ import { NavbarComponent } from './components/spa/partials/navbar/navbar.compone
 import { VideoInicioComponent } from './components/spa/partials/video-inicio/video-inicio.component';
 import { BannerverdeComponent } from './components/spa/partials/bannerverde/bannerverde.component';
 import { UneteALaCausaComponent } from './components/spa/partials/unete-a-la-causa/unete-a-la-causa.component';
+import { LineasComponent } from './components/spa/partials/lineas/lineas.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { UneteALaCausaComponent } from './components/spa/partials/unete-a-la-cau
     NavbarComponent,
     VideoInicioComponent,
     BannerverdeComponent,
-    UneteALaCausaComponent
+    UneteALaCausaComponent,
+    LineasComponent
   ],
   imports: [
     BrowserModule,
