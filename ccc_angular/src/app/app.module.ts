@@ -19,6 +19,8 @@ import { FooterComponent } from "./components/spa/partials/footer/footer.compone
 import { APP_ROUTES } from "../app/routes/routes";
 import { LoginComponent } from './components/sw/login/login.component';
 import { RegistrosComponent } from './components/sw/registros/registros.component';
+import { RegistroEmpresaComponent } from './components/sw/registros/registro-empresa/registro-empresa.component';
+import { RegistroClientesComponent } from './components/sw/registros/registro-clientes/registro-clientes.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,6 +36,8 @@ import { RegistrosComponent } from './components/sw/registros/registros.componen
     FooterComponent,
     LoginComponent,
     RegistrosComponent,
+    RegistroEmpresaComponent,
+    RegistroClientesComponent,
   ],
   imports: [
     APP_ROUTES,
