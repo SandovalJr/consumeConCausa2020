@@ -18,6 +18,7 @@ import { PreguntasFrecuentesComponent } from "./components/spa/partials/pregunta
 import { FooterComponent } from "./components/spa/partials/footer/footer.component";
 import { APP_ROUTES } from "../app/routes/routes";
 import { LoginComponent } from './components/sw/login/login.component';
+import { RegistrosComponent } from './components/sw/registros/registros.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,6 +33,7 @@ import { LoginComponent } from './components/sw/login/login.component';
     PreguntasFrecuentesComponent,
     FooterComponent,
     LoginComponent,
+    RegistrosComponent,
   ],
   imports: [
     APP_ROUTES,
