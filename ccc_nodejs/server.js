@@ -20,7 +20,7 @@ app.use(express.json());
 
 //ROUTES--------------------------------------------------------------
 
-// app.use("/api/user", require("./routes/Users"));
+app.use("/api/clientes", require("./routes/Clientes"));
 
 // Start listening
 app.listen(port, function () {
