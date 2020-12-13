@@ -2,9 +2,9 @@ const Sequelize = require("sequelize"); //para usar el modelo del user
 const db = require("../database/db.js");
 
 module.exports = db.sequelize.define(
-  "clientes",
+  "DonacionesProductos",
   {
-    id_cliente: {
+    id_donacion: {
       type: Sequelize.INTEGER,
       primaryKey: true,
       autoIncrement: true,
@@ -21,21 +21,35 @@ module.exports = db.sequelize.define(
     telefono: {
       type: Sequelize.STRING,
     },
-    fecha_de_nacimiento: {
+    tipo_pago: {
       type: Sequelize.STRING,
     },
-    genero: {
+    organizacion_dona: {
       type: Sequelize.STRING,
     },
-    contraseña: {
+    nombre_producto: {
       type: Sequelize.STRING,
     },
-    created: {
-      type: Sequelize.DATE,
-      defaultValue: Sequelize.NOW,
+    descripcion_producto: {
+      type: Sequelize.STRING,
     },
-    admin: {
-      type: Sequelize.BOOLEAN,
+    cantidad_producto: {
+      type: Sequelize.INTEGER,
+    },
+    total_compra: {
+      type: Sequelize.FLOAT,
+    },
+    imagen_producto: {
+      type: Sequelize.STRING,
+    },
+    fecha_compra: {
+      type: Sequelize.STRING,
+    },
+    estatus_compra: {
+      type: Sequelize.STRING,
+    },
+    nombre_empresa: {
+      type: Sequelize.STRING,
     },
   },
   {
