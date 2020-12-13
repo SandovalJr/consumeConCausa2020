@@ -54,6 +54,9 @@ module.exports = db.sequelize.define(
     link_whatsapp: {
       type: Sequelize.STRING,
     },
+    password: {
+      type: Sequelize.STRING,
+    },
   },
   {
     timestamps: false,
