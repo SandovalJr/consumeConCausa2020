@@ -15,6 +15,7 @@ import { UneteALaCausaComponent } from './components/spa/partials/unete-a-la-cau
 import { LineasComponent } from './components/spa/partials/lineas/lineas.component';
 import { CumplirSuenosComponent } from './components/spa/partials/cumplir-suenos/cumplir-suenos.component';
 import { ComoComprarComponent } from './components/spa/partials/como-comprar/como-comprar.component';
+import { PreguntasFrecuentesComponent } from './components/spa/partials/preguntas-frecuentes/preguntas-frecuentes.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ComoComprarComponent } from './components/spa/partials/como-comprar/com
     UneteALaCausaComponent,
     LineasComponent,
     CumplirSuenosComponent,
-    ComoComprarComponent
+    ComoComprarComponent,
+    PreguntasFrecuentesComponent
   ],
   imports: [
     BrowserModule,
