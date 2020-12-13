@@ -13,6 +13,7 @@ import { VideoInicioComponent } from './components/spa/partials/video-inicio/vid
 import { BannerverdeComponent } from './components/spa/partials/bannerverde/bannerverde.component';
 import { UneteALaCausaComponent } from './components/spa/partials/unete-a-la-causa/unete-a-la-causa.component';
 import { LineasComponent } from './components/spa/partials/lineas/lineas.component';
+import { CumplirSuenosComponent } from './components/spa/partials/cumplir-suenos/cumplir-suenos.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { LineasComponent } from './components/spa/partials/lineas/lineas.compone
     VideoInicioComponent,
     BannerverdeComponent,
     UneteALaCausaComponent,
-    LineasComponent
+    LineasComponent,
+    CumplirSuenosComponent
   ],
   imports: [
     BrowserModule,
