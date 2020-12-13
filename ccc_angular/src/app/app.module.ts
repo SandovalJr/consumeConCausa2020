@@ -14,6 +14,7 @@ import { BannerverdeComponent } from './components/spa/partials/bannerverde/bann
 import { UneteALaCausaComponent } from './components/spa/partials/unete-a-la-causa/unete-a-la-causa.component';
 import { LineasComponent } from './components/spa/partials/lineas/lineas.component';
 import { CumplirSuenosComponent } from './components/spa/partials/cumplir-suenos/cumplir-suenos.component';
+import { ComoComprarComponent } from './components/spa/partials/como-comprar/como-comprar.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { CumplirSuenosComponent } from './components/spa/partials/cumplir-suenos
     BannerverdeComponent,
     UneteALaCausaComponent,
     LineasComponent,
-    CumplirSuenosComponent
+    CumplirSuenosComponent,
+    ComoComprarComponent
   ],
   imports: [
     BrowserModule,
