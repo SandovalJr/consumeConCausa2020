@@ -4,7 +4,7 @@ const clientes = express.Router();
 const cors = require("cors");
 const jwt = require("jsonwebtoken");
 const Cliente = require("../models/Cliente");
-const bcrypt = require("bcryptjs");
+const bcrypt = require('bcrypt');
 
 clientes.use(cors());
 
@@ -32,8 +32,7 @@ clientes.post("/registerCliente", (req, res) => {
   };
 
   // Encriptar contraseña
-  const salt = bcrypt.genSaltSync();
-  clientesData.password = bcrypt.hashSync(clientesData.password, salt);
+  clientesData.password = bcrypt.hashSync(clientesData.password, 10);
   // res.send(console.log(userData));
 
   Cliente.findOne({
