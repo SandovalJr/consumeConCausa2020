@@ -4,7 +4,7 @@ const clientes = express.Router();
 const cors = require("cors");
 const jwt = require("jsonwebtoken");
 const Cliente = require("../models/Cliente");
-const bcrypt = require("bcryptjs");
+const bcrypt = require("bcrypt");
 
 clientes.use(cors());
 
