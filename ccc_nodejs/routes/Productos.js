@@ -93,7 +93,21 @@ productos.get("/eliminarProducto/:id_producto", (req, res) => {
 });
 
 // Informacion para editar
+productos.get("/InformacionProducto/:id_producto", (req, res) => {
+  Producto.findOne({
+    where: {
+      id_producto: req.params.id_producto,
+    },
+  })
+    .then(function (deletedRecords) {
+      res.status(200).json(deletedRecords);
+    })
+    .catch(function (error) {
+      res.status(500).json(error);
+    });
+});
 
 // Editar informacion de los productos
+
 
 module.exports = productos;
