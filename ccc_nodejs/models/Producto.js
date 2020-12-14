@@ -39,6 +39,9 @@ module.exports = db.sequelize.define(
     nombre_empresa: {
       type: Sequelize.STRING,
     },
+    imagen: {
+      type: Sequelize.STRING,
+    },
   },
   {
     timestamps: false,
