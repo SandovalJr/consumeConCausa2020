@@ -29,6 +29,9 @@ export class MessageErrorsService {
       case errorRecibido.hasOwnProperty("alpha"):
         message = "Tienes que ingresar texto";
         break;
+      case errorRecibido.hasOwnProperty("email"):
+        message = "Tienes que ingresar un correo";
+        break;
     }
     return {
       message,
