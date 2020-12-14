@@ -21,6 +21,7 @@ app.use(express.json());
 //ROUTES--------------------------------------------------------------
 
 app.use("/api/clientes", require("./routes/Clientes"));
+app.use('/api/empresa', require('./routes/Empresas'));
 
 // Start listening
 app.listen(port, function () {

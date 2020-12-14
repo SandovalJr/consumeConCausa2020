@@ -32,8 +32,7 @@ clientes.post("/registerCliente", (req, res) => {
   };
 
   // Encriptar contraseña
-  const salt = bcrypt.genSaltSync();
-  clientesData.password = bcrypt.hashSync(clientesData.password, salt);
+  clientesData.password = bcrypt.hashSync(clientesData.password, 10);
   // res.send(console.log(userData));
 
   Cliente.findOne({
