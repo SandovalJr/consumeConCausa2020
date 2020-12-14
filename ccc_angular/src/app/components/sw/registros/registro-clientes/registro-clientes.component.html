@@ -62,6 +62,12 @@
               }"
             />
             <label for="inputApellidos4MD">Apellidos</label>
+            <div
+              *ngIf="ValidarFormulario('apellidos').error"
+              class="text-center invalid-feedback d-block"
+            >
+              {{ ValidarFormulario("apellidos").message }}
+            </div>
           </div>
         </div>
         <!-- Grid column -->
@@ -89,6 +95,12 @@
               }"
             />
             <label for="inputTelefonoMD">Telefono</label>
+            <div
+              *ngIf="ValidarFormulario('telefono').error"
+              class="text-center invalid-feedback d-block"
+            >
+              {{ ValidarFormulario("telefono").message }}
+            </div>
           </div>
         </div>
         <!-- Grid column -->
@@ -112,6 +124,12 @@
               }"
             />
             <label for="inputEmailMD">Email</label>
+            <div
+              *ngIf="ValidarFormulario('correo').error"
+              class="text-center invalid-feedback d-block"
+            >
+              {{ ValidarFormulario("correo").message }}
+            </div>
           </div>
         </div>
         <!-- Grid column -->
@@ -139,6 +157,12 @@
               }"
             />
             <label for="inputTelefonoMD">Fecha de Nacimiento</label>
+            <div
+              *ngIf="ValidarFormulario('fecha_de_nacimiento').error"
+              class="text-center invalid-feedback d-block"
+            >
+              {{ ValidarFormulario("fecha_de_nacimiento").message }}
+            </div>
           </div>
         </div>
         <!-- Grid column -->
@@ -157,11 +181,17 @@
                 'is-invalid': ValidarFormulario('genero').error == true
               }"
             >
-              <option selected>Selecciona tu genero</option>
+              <option>Selecciona tu genero</option>
               <option value="'F'">Femenino</option>
               <option value="'M'">Masculino</option>
               <option value="'Sin Especificar'">Sin Especificar</option>
             </select>
+            <div
+              *ngIf="ValidarFormulario('genero').error"
+              class="text-center invalid-feedback d-block"
+            >
+              {{ ValidarFormulario("genero").message }}
+            </div>
           </div>
         </div>
         <!-- Grid column -->
@@ -186,6 +216,12 @@
               }"
             />
             <label for="inputTelefonoMD">Password</label>
+            <div
+              *ngIf="ValidarFormulario('password').error"
+              class="text-center invalid-feedback d-block"
+            >
+              {{ ValidarFormulario("password").message }}
+            </div>
           </div>
         </div>
       </div>

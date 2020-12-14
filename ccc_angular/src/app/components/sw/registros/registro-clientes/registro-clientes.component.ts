@@ -44,6 +44,7 @@ export class RegistroClientesComponent implements OnInit {
     genero: "",
     password: "",
   };
+
   constructor(
     private router: Router,
     private serviceCliente: ClienteService,
@@ -58,32 +59,17 @@ export class RegistroClientesComponent implements OnInit {
     this.formulario = new FormGroup({
       nombre: new FormControl(null, [
         RxwebValidators.required(),
-        RxwebValidators.numeric(),
+        RxwebValidators.alpha(),
       ]),
       apellidos: new FormControl(null, [
         RxwebValidators.required(),
-        RxwebValidators.numeric(),
+        RxwebValidators.alpha(),
       ]),
-      correo: new FormControl(null, [
-        RxwebValidators.required(),
-        RxwebValidators.numeric(),
-      ]),
-      telefono: new FormControl(null, [
-        RxwebValidators.required(),
-        RxwebValidators.numeric(),
-      ]),
-      fecha_de_nacimiento: new FormControl(null, [
-        RxwebValidators.required(),
-        RxwebValidators.numeric(),
-      ]),
-      genero: new FormControl(null, [
-        RxwebValidators.required(),
-        RxwebValidators.numeric(),
-      ]),
-      password: new FormControl(null, [
-        RxwebValidators.required(),
-        RxwebValidators.numeric(),
-      ]),
+      correo: new FormControl(null, [RxwebValidators.required()]),
+      telefono: new FormControl(null, [RxwebValidators.required()]),
+      fecha_de_nacimiento: new FormControl(null, [RxwebValidators.required()]),
+      genero: new FormControl(null, [RxwebValidators.required()]),
+      password: new FormControl(null, [RxwebValidators.required()]),
     });
   }
 
@@ -111,7 +97,7 @@ export class RegistroClientesComponent implements OnInit {
             Swal.fire({
               icon: "error",
               title: "Oops...",
-              text: "Auto ya existente",
+              text: "Cliente ya existente",
             });
             console.error(err);
           }
