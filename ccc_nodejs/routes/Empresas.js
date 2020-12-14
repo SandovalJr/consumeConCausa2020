@@ -38,7 +38,7 @@ empresas.post('/registerEmpresa', (req, res) => {
         link_fb: req.body.link_fb, 
         link_whatsapp: req.body.link_fb, 
         password: req.body.password,
-        status:false
+        status:0
     }
 
     console.log('Empresa', empresaData);
