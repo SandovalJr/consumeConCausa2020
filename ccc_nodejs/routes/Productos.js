@@ -59,7 +59,7 @@ productos.post("/registerProducto", (req, res) => {
 
 // Listar productos por empresa
 productos.get("/LPE/:nombre_empresa", (req, res) => {
-    console.log(req.body.nombre_empresa);
+  console.log(req.body.nombre_empresa);
   Producto.findAll({
     where: {
       nombre_empresa: req.params.nombre_empresa,
@@ -76,5 +76,24 @@ productos.get("/LPE/:nombre_empresa", (req, res) => {
       res.send("error" + errr);
     });
 });
+
+// Eliminar productos
+productos.get("/eliminarProducto/:id_producto", (req, res) => {
+  Producto.destroy({
+    where: {
+      id_producto: req.params.id_producto,
+    },
+  })
+    .then(function (deletedRecords) {
+      res.status(200).json(deletedRecords);
+    })
+    .catch(function (error) {
+      res.status(500).json(error);
+    });
+});
+
+// Informacion para editar
+
+// Editar informacion de los productos
 
 module.exports = productos;
