@@ -108,6 +108,35 @@ productos.get("/InformacionProducto/:id_producto", (req, res) => {
 });
 
 // Editar informacion de los productos
+productos.put("/actualizarProducto/:id_producto", (req, res) => {
+  const productoData = {
+    nombre: req.body.nombre,
+    categoria: req.body.categoria,
+    precio: req.body.precio,
+    genero: req.body.genero,
+    descripcion: req.body.descripcion,
+    stock: req.body.stock,
+    marca: req.body.marca,
+    otras_caracteristicas: req.body.otras_caracteristicas,
+    nombre_empresa: req.body.nombre_empresa,
+    imagen: req.body.imagen,
+  };
 
+  console.log("---------------------");
+  console.log(productoData);
+
+
+  Producto.update(productoData, {
+    where: {
+      id_producto: req.params.id_producto,
+    },
+  })
+    .then(function (updatedRecords) {
+      res.status(200).json(updatedRecords);
+    })
+    .catch(function (error) {
+      res.status(500).json(error);
+    });
+});
 
 module.exports = productos;
