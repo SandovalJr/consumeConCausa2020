@@ -26,6 +26,9 @@ import { RegistroClientesComponent } from "./components/sw/registros/registro-cl
 // SERVICIOS
 import { MessageErrorsService } from "../app/services/messageError.service";
 import { ClienteService } from "../app/services/registerCliente.service";
+import { AdminComponent } from './components/sw/usertypes/admin/admin.component';
+import { ClienteComponent } from './components/sw/usertypes/cliente/cliente.component';
+import { EmpresaComponent } from './components/sw/usertypes/empresa/empresa.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +47,9 @@ import { ClienteService } from "../app/services/registerCliente.service";
     RegistrosComponent,
     RegistroEmpresaComponent,
     RegistroClientesComponent,
+    AdminComponent,
+    ClienteComponent,
+    EmpresaComponent,
   ],
   imports: [
     APP_ROUTES,
