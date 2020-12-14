@@ -57,6 +57,9 @@ module.exports = db.sequelize.define(
     password: {
       type: Sequelize.STRING,
     },
+    status: {
+      type: Sequelize.BOOLEAN,
+    },
   },
   {
     timestamps: false,
