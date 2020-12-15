@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { RegisterService } from '../../../../services/register.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-registro-empresa',
@@ -38,14 +39,14 @@ export class RegistroEmpresaComponent implements OnInit {
       this.registerService.registroEmpresa(this.registerForm.value)
       .subscribe(
         (resp) => {
-          console.log('Registro Completo');
+          Swal.fire('Registro Completo', 'Espera validacion', 'success');
         }, 
         (err) =>{
-          console.log('Ocurrio un error')
+          Swal.fire('Error', 'Algo ha fallado', 'error');
         }
       );
     }else{
-      console.log('Campos Incompletos');
+      Swal.fire('Campos Incompletos', 'Valida Informacion', 'info');
     }
   }
 

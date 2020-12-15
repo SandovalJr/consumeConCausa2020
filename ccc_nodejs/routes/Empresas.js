@@ -5,6 +5,8 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 
 const Empresa = require('../models/Empresa');
+const Cliente = require('../models/Cliente');
+const { response } = require('express');
 
 empresas.use(cors());
 
@@ -72,6 +74,54 @@ empresas.post('/registerEmpresa', (req, res) => {
     .catch((err) => {
         res.send('error' + err);
     });
+});
+
+empresas.post('/login', async(req, res = response) => {
+    console.log('Entra')
+    const { correo, password } = req.body;
+    try {
+        let usuarioDB = await Empresa.findOne({
+            where: {
+                correo
+            }
+        });
+        if(!usuarioDB){
+            usuarioDB = await Cliente.findOne({
+                where: {
+                    correo
+                }
+            });
+            if(!usuarioDB){
+                return res.status(404).json({
+                    ok: false, 
+                    msg: 'Correo Erroneo'
+                });
+            }
+        }
+
+        console.log(usuarioDB);
+
+        const validPassword = bcrypt.compareSync(password, usuarioDB.password);
+
+        if(!validPassword){
+            return res.status(400).json({
+                ok: false,
+                msg: 'Pass erroneo'
+            })
+        }
+
+        // Aqui va el token
+
+        res.json({
+            ok: true, 
+        });
+    } catch(error){
+        console.log(error);
+        res.status(500).json({
+            ok: false, 
+            msg: 'Contacte al administrador'
+        })
+    }
 });
 
 module.exports = empresas;
