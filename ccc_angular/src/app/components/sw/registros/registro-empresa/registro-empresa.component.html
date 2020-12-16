@@ -10,245 +10,274 @@
     </div>
   </div>
   <!-- Extended material form grid -->
-  <form [formGroup]="registerForm" (ngSubmit)="registroEmpresa()">
-    <!-- Grid row -->
-    <div class="form-row margenform">
-      <!-- Grid column -->
-      <div class="col-md-6">
-        <!-- Material input -->
-        <div class="md-form form-group">
-          <input
-            mdbInput
-            type="text"
-            class="form-control"
-            id="inputNombre4MD"
-            placeholder="Nombre"
-            formControlName="nombre"
-          />
-          <label for="inputNombre4MD">Nombre</label>
+  <form>
+    <ng-container [formGroup]="formulario">
+      <!-- Grid row -->
+      <div class="form-row margenform">
+        <!-- Grid column -->
+        <div class="col-md-6">
+          <!-- Material input -->
+          <div class="md-form form-group">
+            <input
+              mdbInput
+              type="text"
+              class="form-control"
+              id="inputNombre4MD"
+              placeholder="Nombre"
+              formControlName="nombre"
+            />
+            <label for="inputNombre4MD">Nombre</label>
+          </div>
         </div>
-      </div>
-      <!-- Grid column -->
+        <!-- Grid column -->
 
-      <!-- Grid column -->
-      <div class="col-md-6">
-        <!-- Material input -->
-        <div class="md-form form-group">
-          <input
-            mdbInput
-            type="text"
-            class="form-control"
-            id="inputApellidos4MD"
-            placeholder="Apellidos"
-            formControlName="apellidos"
-          />
-          <label for="inputApellidos4MD">Apellidos</label>
+        <!-- Grid column -->
+        <div class="col-md-6">
+          <!-- Material input -->
+          <div class="md-form form-group">
+            <input
+              mdbInput
+              type="text"
+              class="form-control"
+              id="inputApellidos4MD"
+              placeholder="Organizacion"
+              formControlName="apellidos"
+            />
+            <label for="inputApellidos4MD"
+              >Organizacion a la que perteneces</label
+            >
+          </div>
         </div>
+        <!-- Grid column -->
       </div>
-      <!-- Grid column -->
-    </div>
-    <!-- Grid row -->
+      <!-- Grid row -->
 
-    <!-- Grid row -->
-    <div class="form-row">
-      <!-- Grid column -->
-      <div class="col-md-6">
-        <!-- Material input -->
-        <div class="md-form form-group">
-          <input
-            mdbInput
-            type="text"
-            class="form-control"
-            placeholder="Telefono"
-            formControlName="telefono"
-          />
-          <label>Telefono</label>
+      <!-- Grid row -->
+      <div class="form-row">
+        <!-- Grid column -->
+        <div class="col-md-6">
+          <!-- Material input -->
+          <div class="md-form form-group">
+            <input
+              mdbInput
+              type="text"
+              class="form-control"
+              placeholder="Telefono"
+              formControlName="telefono"
+            />
+            <label>Telefono</label>
+          </div>
         </div>
-      </div>
-      <!-- Grid column -->
+        <!-- Grid column -->
 
-      <!-- Grid column -->
-      <div class="col-md-6">
-        <!-- Material input -->
-        <div class="md-form form-group">
-          <input
-            mdbInput
-            type="email"
-            class="form-control"
-            id="inputEmailMD"
-            placeholder="Email"
-            formControlName="correo"
-          />
-          <label>Email</label>
+        <!-- Grid column -->
+        <div class="col-md-6">
+          <!-- Material input -->
+          <div class="md-form form-group">
+            <input
+              mdbInput
+              type="email"
+              class="form-control"
+              id="inputEmailMD"
+              placeholder="Email"
+              formControlName="correo"
+            />
+            <label>Email</label>
+          </div>
         </div>
+        <!-- Grid column -->
       </div>
-      <!-- Grid column -->
-    </div>
-    <!-- Grid row -->
-    <!-- Grid row -->
-    <div class="form-row">
-      <!-- Grid column -->
-      <div class="col-md-6">
-        <!-- Material input -->
-        <div class="md-form form-group">
-          <input
-            mdbInput
-            type="text"
-            class="form-control"
-            placeholder="Nombre de la empresa"
-            formControlName="nombre_empresa"
-          />
-          <label>Nombre de la empresa</label>
+      <!-- Grid row -->
+      <!-- Grid row -->
+      <div class="form-row">
+        <!-- Grid column -->
+        <div class="col-md-6">
+          <!-- Material input -->
+          <div class="md-form form-group">
+            <input
+              mdbInput
+              type="text"
+              class="form-control"
+              placeholder="Nombre de la empresa"
+              formControlName="nombre_empresa"
+            />
+            <label>Nombre de la empresa</label>
+          </div>
         </div>
-      </div>
-      <!-- Grid column -->
+        <!-- Grid column -->
 
-      <!-- Grid column -->
-      <div class="col-md-6">
-        <!-- Material input -->
-        <div class="md-form form-group">
-          <select class="browser-default custom-select" formControlName="giro_empresa">
-            <option selected>Selecciona el giro de tu empresa</option>
-            <option value="Juguetes">Juguetes</option>
-            <option value="Tecnologia">Tecnologia</option>
-          </select>
+        <!-- Grid column -->
+        <div class="col-md-6">
+          <!-- Material input -->
+          <div class="md-form form-group">
+            <select
+              class="browser-default custom-select"
+              formControlName="giro_empresa"
+            >
+              <option selected>Selecciona el giro de tu empresa</option>
+              <option value="Juguetes">Juguetes</option>
+              <option value="Tecnologia">Tecnologia</option>
+            </select>
+          </div>
         </div>
+        <!-- Grid column -->
       </div>
-      <!-- Grid column -->
-    </div>
 
-    <!-- Grid row -->
-    <div class="form-row">
-      <!-- Grid column -->
-      <div class="col-md-6">
-        <!-- Material input -->
-        <div class="md-form form-group">
-          <input
-            mdbInput
-            type="text"
-            class="form-control"
-            placeholder="Dirección"
-            formControlName="direccion"
-          />
-          <label>Dirección</label>
+      <!-- Grid row -->
+      <div class="form-row">
+        <!-- Grid column -->
+        <div class="col-md-6">
+          <!-- Material input -->
+          <div class="md-form form-group">
+            <input
+              mdbInput
+              type="text"
+              class="form-control"
+              placeholder="Dirección"
+              formControlName="direccion"
+            />
+            <label>Dirección</label>
+          </div>
         </div>
-      </div>
-      <!-- Grid column -->
+        <!-- Grid column -->
 
-      <!-- Grid column -->
-      <div class="col-md-6">
-        <!-- Material input -->
-        <div class="md-form form-group">
-          <input
-            mdbInput
-            type="text"
-            class="form-control"
-            placeholder="Codigo Postal"
-            formControlName="cp"
-          />
-          <label>Codigo Postal</label>
+        <!-- Grid column -->
+        <div class="col-md-6">
+          <!-- Material input -->
+          <div class="md-form form-group">
+            <input
+              mdbInput
+              type="text"
+              class="form-control"
+              placeholder="Codigo Postal"
+              formControlName="cp"
+            />
+            <label>Codigo Postal</label>
+          </div>
         </div>
+        <!-- Grid column -->
       </div>
-      <!-- Grid column -->
-    </div>
-    <div class="form-row">
-      <!-- Grid column -->
-      <div class="col-md-6">
-        <!-- Material input -->
-        <div class="md-form form-group">
-          <input
-            mdbInput
-            type="text"
-            class="form-control"
-            placeholder="Ciudad"
-            formControlName="ciudad"
-          />
-          <label>Ciudad</label>
+      <div class="form-row">
+        <!-- Grid column -->
+        <div class="col-md-6">
+          <!-- Material input -->
+          <div class="md-form form-group">
+            <input
+              mdbInput
+              type="text"
+              class="form-control"
+              placeholder="Ciudad"
+              formControlName="ciudad"
+            />
+            <label>Ciudad</label>
+          </div>
         </div>
-      </div>
-      <!-- Grid column -->
+        <!-- Grid column -->
 
-      <!-- Grid column -->
-      <div class="col-md-6">
-        <!-- Material input -->
-        <div class="md-form form-group">
-          <input mdbInput type="text" class="form-control" placeholder="RFC" formControlName="rfc"/>
-          <label>RFC (Opcional)</label>
+        <!-- Grid column -->
+        <div class="col-md-6">
+          <!-- Material input -->
+          <div class="md-form form-group">
+            <input
+              mdbInput
+              type="text"
+              class="form-control"
+              placeholder="RFC"
+              formControlName="rfc"
+            />
+            <label>RFC (Opcional)</label>
+          </div>
         </div>
+        <!-- Grid column -->
       </div>
-      <!-- Grid column -->
-    </div>
-    <div class="form-row">
-      <!-- Grid column -->
-      <div class="col-md-6">
-        <!-- Material input -->
-        <div class="md-form form-group">
-          <input
-            mdbInput
-            type="text"
-            class="form-control"
-            placeholder="Ingresa la url de tu pagina de facebook"
-            formControlName="link_fb"
-          />
-          <label>Facebook (url opcional)</label>
+      <div class="form-row">
+        <!-- Grid column -->
+        <div class="col-md-6">
+          <!-- Material input -->
+          <div class="md-form form-group">
+            <input
+              mdbInput
+              type="text"
+              class="form-control"
+              placeholder="Ingresa la url de tu pagina de facebook"
+              formControlName="link_fb"
+            />
+            <label>Facebook (url opcional)</label>
+          </div>
         </div>
-      </div>
-      <!-- Grid column -->
+        <!-- Grid column -->
 
-      <!-- Grid column -->
-      <div class="col-md-6">
-        <!-- Material input -->
-        <div class="md-form form-group">
-          <input
-            mdbInput
+        <!-- Grid column -->
+        <div class="col-md-6">
+          <!-- Material input -->
+          <div class="md-form form-group">
+            <input
+              mdbInput
+              type="text"
+              class="form-control"
+              placeholder="Ingresa tu el numero de whatsapp"
+              formControlName="link_whatsapp"
+            />
+            <label>Whatsapp (opcional)</label>
+          </div>
+        </div>
+        <!-- Grid column -->
+      </div>
+      <div class="form-row">
+        <!-- Grid column -->
+        <div class="col-md">
+          <!-- Material input -->
+          <div class="md-form form-group">
+            <input
+              mdbInput
+              type="password"
+              class="form-control"
+              placeholder="Password"
+              formControlName="password"
+            />
+            <label>Password</label>
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="md-form col-12">
+          <textarea
             type="text"
-            class="form-control"
-            placeholder="Ingresa tu el numero de whatsapp"
-            formControlName="link_whatsapp"
-          />
-          <label>Whatsapp (opcional)</label>
-        </div>
-      </div>
-      <!-- Grid column -->
-    </div>
-    <div class="form-row">
-      <!-- Grid column -->
-      <div class="col-md">
-        <!-- Material input -->
-        <div class="md-form form-group">
-          <input
+            id="form10"
+            class="md-textarea form-control"
             mdbInput
-            type="password"
-            class="form-control"
-            placeholder="Password"
-            formControlName="password"
-          />
-          <label>Password</label>
+            formControlName="descripcion"
+            [(ngModel)]="credentialsEmpresa.descripcion"
+            [ngClass]="{
+              'is-valid': ValidarFormulario('descripcion').error == false,
+              'is-invalid': ValidarFormulario('descripcion').error == true
+            }"
+          ></textarea>
+          <label for="form7">Descripción empresa</label>
+          <div
+            *ngIf="ValidarFormulario('descripcion').error"
+            class="text-center invalid-feedback d-block"
+          >
+            {{ ValidarFormulario("descripcion").message }}
+          </div>
         </div>
       </div>
-    </div>
-    <div class="form-row">
-      <div class="md-form col-12">
-        <textarea
-          type="text"
-          id="form10"
-          class="md-textarea form-control"
-          mdbInput
-          formControlName="descripcion"
-        ></textarea>
-        <label for="form7">Descripción empresa</label>
-      </div>
-    </div>
 
-    <div class="form-row">
-      <div class="col-md-6">
-        <!-- Material input -->
-        <label>Agrega el logo de tu empresa</label>
-        <div class="md-form form-group">
-          <input mdbInput type="file" class="form-control" formControlName="imagen" />
+      <div class="form-row">
+        <div class="col-md-6">
+          <!-- Material input -->
+          <label>Agrega el logo de tu empresa</label>
+          <div class="md-form form-group">
+            <input
+              mdbInput
+              type="file"
+              class="form-control"
+              formControlName="imagen"
+            />
+          </div>
         </div>
       </div>
-    </div>
+    </ng-container>
     <!-- Grid row -->
     <div class="centrarbtn">
       <button
@@ -257,6 +286,7 @@
         gradient="aqua"
         rounded="true"
         mdbWavesEffect
+        (click)="registroEmpresa()"
       >
         Registrar
       </button>

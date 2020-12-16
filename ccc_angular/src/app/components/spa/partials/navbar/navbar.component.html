@@ -31,9 +31,8 @@
             type="button"
             class="nav-link dropdown-toggle waves-light"
             mdbWavesEffect
-            routerLink="LogIn"
           >
-            <mdb-icon fas icon="user"></mdb-icon> Log In<span
+            <mdb-icon fas icon="plus-circle"></mdb-icon> Registrate<span
               class="caret"
             ></span
           ></a>
@@ -42,13 +41,32 @@
             class="dropdown-menu dropdown-menu-right dropdown dropdown-primary"
             role="menu"
           >
-            <a class="dropdown-item waves-light" mdbWavesEffect href="#"
-              >My account</a
+            <a
+              class="dropdown-item waves-light"
+              mdbWavesEffect
+              (click)="RegistroCliente()"
+              >Cliente</a
             >
-            <a class="dropdown-item waves-light" mdbWavesEffect href="#"
-              >Log out</a
+            <a
+              class="dropdown-item waves-light"
+              mdbWavesEffect (click)="EmpresaRegistro()"
+              >Empresa</a
             >
           </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            dropdownToggle
+            mdbWavesEffect
+            type="button"
+            class="nav-link waves-light"
+            mdbWavesEffect
+            routerLink="LogIn"
+          >
+            <mdb-icon fas icon="user"></mdb-icon> Log In<span
+              class="caret"
+            ></span
+          ></a>
         </li>
       </ul>
     </links>
