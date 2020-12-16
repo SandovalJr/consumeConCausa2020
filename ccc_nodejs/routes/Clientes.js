@@ -66,7 +66,6 @@ clientes.get("/deleteCliente/:id_cliente", (req, res) => {
     });
 });
 
-
 // ACTUALIZAR USUARIO
 clientes.put("/actualizarClienteInfo/:id_cliente", (req, res) => {
   const userData = {

@@ -27,7 +27,7 @@ dprods.post("/registerDonacionProduct", (req, res) => {
     total_compra: req.body.total_compra,
     imagen_producto: req.body.imagen_producto,
     fecha_compra: today,
-    estatus_compra: req.body.estatus_compra,
+    estatus_compra: "No Pagado",
     nombre_empresa: req.body.nombre_empresa,
   };
   console.log(donacionData);
@@ -60,7 +60,7 @@ dprods.get("/ListDPNP/:correo", (req, res) => {
     });
 });
 
-//(list)  Mostrar las compras de cada cliente estatus pagado 
+//(list)  Mostrar las compras de cada cliente estatus pagado
 dprods.get("/ListDPPagado/:correo", (req, res) => {
   DProd.findAll({
     where: {
@@ -80,10 +80,43 @@ dprods.get("/ListDPPagado/:correo", (req, res) => {
     });
 });
 
-
 //(list)  Mostrar las donaciones a las empresas en general (aun no pagadas)
+dprods.get("/EmpresaListDNP", (req, res) => {
+  DProd.findAll({
+    where: {
+      estatus_compra: "No Pagado",
+    },
+  })
+    .then((data) => {
+      if (data) {
+        res.json(data);
+      } else {
+        res.send("data no hay");
+      }
+    })
+    .catch((errr) => {
+      res.send("error" + errr);
+    });
+});
 
 // (list) Mostrar las donaciones a las empresas en general (pagadas)
+dprods.get("/EmpresaListDPagado", (req, res) => {
+  DProd.findAll({
+    where: {
+      estatus_compra: "Pagado",
+    },
+  })
+    .then((data) => {
+      if (data) {
+        res.json(data);
+      } else {
+        res.send("data no hay");
+      }
+    })
+    .catch((errr) => {
+      res.send("error" + errr);
+    });
+});
 
 //(actualizar status) Validar que ya fue entregada la entrega ()
 
