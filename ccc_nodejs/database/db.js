@@ -1,6 +1,7 @@
 const { Sequelize, Model, DataTypes } = require("sequelize");
 const db = {};
-const sequelize = new Sequelize("consume_con_causa", "root", "root2020", { //Pass Local root2020
+const sequelize = new Sequelize("consume_con_causa", "root", "", {
+  //Pass Local root2020
   host: "localhost",
   dialect: "mysql",
   // se cambio de false a 1 por un warning
@@ -18,6 +19,6 @@ db.sequelize = sequelize;
 db.Model = Model;
 db.DataTypes = DataTypes;
 
-console.log('Conexion Realizada');
+console.log("Conexion Realizada");
 
 module.exports = db;

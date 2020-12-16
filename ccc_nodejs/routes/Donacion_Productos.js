@@ -11,7 +11,7 @@ dprods.get("/apidp", (req, res) => {
   res.json({ status: "API DONACION dprods" });
 });
 
-// REGISTRO DONACION DE dprods
+// REGISTRO DONACION DE PRODUCTOS
 dprods.post("/registerDonacionProduct", (req, res) => {
   const today = new Date().toJSON();
   const donacionData = {
@@ -31,28 +31,65 @@ dprods.post("/registerDonacionProduct", (req, res) => {
     nombre_empresa: req.body.nombre_empresa,
   };
   console.log(donacionData);
-  DProd.findOne({
-    where: {},
-  })
-    .then((producto) => {
-      if (!producto) {
-        Producto.create(donacionData)
-          .then(function (producto) {
-            res.status(200).json(donacionData);
-          })
-          .catch((err) => {
-            res.send("error: " + err);
-          });
-      } else {
-        return res.status(500).json({
-          ok: false,
-          err,
-        });
-      }
+  DProd.create(donacionData)
+    .then(function (Donacion) {
+      res.status(200).json(Donacion);
     })
-    .catch((err) => {
-      res.send("error: " + err);
+    .catch(function (error) {
+      res.status(500).json(error);
     });
 });
 
+//(list)  Mostrar las compras de cada cliente estatus no pagado
+dprods.get("/ListDPNP/:correo", (req, res) => {
+  DProd.findAll({
+    where: {
+      correo: req.params.correo,
+      estatus_compra: "No Pagado",
+    },
+  })
+    .then((data) => {
+      if (data) {
+        res.json(data);
+      } else {
+        res.send("data no hay");
+      }
+    })
+    .catch((errr) => {
+      res.send("error" + errr);
+    });
+});
+
+//(list)  Mostrar las compras de cada cliente estatus pagado 
+dprods.get("/ListDPPagado/:correo", (req, res) => {
+  DProd.findAll({
+    where: {
+      correo: req.params.correo,
+      estatus_compra: "Pagado",
+    },
+  })
+    .then((data) => {
+      if (data) {
+        res.json(data);
+      } else {
+        res.send("data no hay");
+      }
+    })
+    .catch((errr) => {
+      res.send("error" + errr);
+    });
+});
+
+
+//(list)  Mostrar las donaciones a las empresas en general (aun no pagadas)
+
+// (list) Mostrar las donaciones a las empresas en general (pagadas)
+
+//(actualizar status) Validar que ya fue entregada la entrega ()
+
 module.exports = dprods;
+
+// ESTUS:
+
+// PAGADO
+// ESPERA
