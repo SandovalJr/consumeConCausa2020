@@ -119,6 +119,23 @@ dprods.get("/EmpresaListDPagado", (req, res) => {
 });
 
 //(actualizar status) Validar que ya fue entregada la entrega ()
+dprods.put("/actualizarAPagado/:id_donacion", (req, res) => {
+  const datapagado = {
+    estatus_compra: "Pagado",
+  };
+  // console.log(datapagado);
+  DProd.update(datapagado, {
+    where: {
+      id_donacion: req.params.id_donacion,
+    },
+  })
+    .then(function (updatedRecords) {
+      res.status(200).json(updatedRecords);
+    })
+    .catch(function (error) {
+      res.status(500).json(error);
+    });
+});
 
 module.exports = dprods;
 
