@@ -7,12 +7,18 @@ import { LoginComponent } from "../components/sw/login/login.component";
 import { RegistrosComponent } from "../components/sw/registros/registros.component";
 import { RegistroEmpresaComponent } from "../components/sw/registros/registro-empresa/registro-empresa.component";
 import { RegistroClientesComponent } from "../components/sw/registros/registro-clientes/registro-clientes.component";
-import { ClienteComponent } from '../components/sw/usertypes/cliente/cliente.component';
-import { EmpresaComponent } from '../components/sw/usertypes/empresa/empresa.component';
 
 // ADMINISTRADOR
 import { AdminComponent } from "../components/sw/usertypes/admin/admin.component";
 import { InicioadminComponent } from "../components/sw/usertypes/admin/inicioadmin/inicioadmin.component";
+
+// CLIENTE
+import { ClienteComponent } from "../components/sw/usertypes/cliente/cliente.component";
+import { InicioClienteComponent } from "../components/sw/usertypes/cliente/inicio-cliente/inicio-cliente.component";
+
+// EMPRESA
+import { EmpresaComponent } from "../components/sw/usertypes/empresa/empresa.component";
+import { InicioEmpresaComponent } from "../components/sw/usertypes/empresa/inicio-empresa/inicio-empresa.component";
 
 const routes: Routes = [
   { path: "", component: SpaComponent },
@@ -37,15 +43,17 @@ const routes: Routes = [
     component: AdminComponent,
     children: [
       { path: "Inicio_Administrador", component: InicioadminComponent },
-    ]
+    ],
   },
   {
     path: "empresa/:id",
     component: EmpresaComponent,
+    children: [{ path: "Inicio_Cliente", component: InicioClienteComponent }],
   },
   {
     path: "cliente/:id",
     component: ClienteComponent,
+    children: [{ path: "Inicio_Empresa", component: InicioEmpresaComponent }],
   },
 ];
 

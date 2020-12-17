@@ -40,6 +40,10 @@ import { MatMenuModule } from "@angular/material/menu";
 import { MatListModule } from "@angular/material/list";
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { InicioadminComponent } from './components/sw/usertypes/admin/inicioadmin/inicioadmin.component';
+import { SidenavEmpresaComponent } from './components/sw/usertypes/empresa/sidenav-empresa/sidenav-empresa.component';
+import { SidenavClienteComponent } from './components/sw/usertypes/cliente/sidenav-cliente/sidenav-cliente.component';
+import { InicioClienteComponent } from './components/sw/usertypes/cliente/inicio-cliente/inicio-cliente.component';
+import { InicioEmpresaComponent } from './components/sw/usertypes/empresa/inicio-empresa/inicio-empresa.component';
 
 @NgModule({
   declarations: [
@@ -63,6 +67,10 @@ import { InicioadminComponent } from './components/sw/usertypes/admin/inicioadmi
     EmpresaComponent,
     SidenavadminComponent,
     InicioadminComponent,
+    SidenavEmpresaComponent,
+    SidenavClienteComponent,
+    InicioClienteComponent,
+    InicioEmpresaComponent,
   ],
   imports: [
     APP_ROUTES,
