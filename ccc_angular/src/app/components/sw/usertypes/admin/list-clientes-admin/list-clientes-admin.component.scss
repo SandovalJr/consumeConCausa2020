@@ -37,6 +37,17 @@
   justify-content: center;
 }
 
+.ttabla {
+  // margin-top: 30px;
+  background: #15c76f;
+  font-family: "Roboto Condensed", sans-serif;
+  color: white;
+  text-align: center;
+}
+.tc {
+  color: white;
+}
+
 @media (max-width: 541px) {
   .titulo {
     font-size: 35px;

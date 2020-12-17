@@ -41,5 +41,9 @@ export class ClienteService {
     console.log(user);
     return this.http.post(this.baseUrl + `registerCliente`, user);
   }
-}
 
+  // LISTAR TODOS LOS CLIENTES
+  public ListClientes(): Observable<any> {
+    return this.http.get(`${this.baseUrl}listarclientes`);
+  }
+}
