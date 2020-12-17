@@ -27,6 +27,9 @@ const Swal = require("sweetalert2");
 })
 export class ListClientesAdminComponent implements OnInit {
   public UsuariosListados: Array<any> = [];
+  loading: boolean = false;
+  Buscador_Clientes: any;
+  pageActual: number = 1;
 
   constructor(
     private router: Router,
@@ -44,6 +47,7 @@ export class ListClientesAdminComponent implements OnInit {
       (clientes) => {
         console.log(clientes);
         this.UsuariosListados = clientes;
+        this.loading = true;
       },
       (err) => {
         Swal.fire({
@@ -55,4 +59,30 @@ export class ListClientesAdminComponent implements OnInit {
       }
     );
   }
+
+  public eliminarCliente(id_cliente: any) {
+    Swal.fire({
+      title: "Seguro que quieres eliminarlo?",
+      text: "No podras volver atras!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#00a441",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Si , Eliminar",
+    }).then((result) => {
+      if (result.value) {
+        this.clienteService.EliminarCliente(id_cliente).subscribe(
+          () => {
+            window.location.reload();
+            // console.log("Eliminado con exito");
+          },
+          (err) => {
+            console.log(err);
+          }
+        );
+      }
+    });
+  }
+
+
 }

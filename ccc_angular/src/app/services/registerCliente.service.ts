@@ -46,4 +46,9 @@ export class ClienteService {
   public ListClientes(): Observable<any> {
     return this.http.get(`${this.baseUrl}listarclientes`);
   }
+
+  // DELETE CLIENTE
+  public EliminarCliente(id_cliente: any): Observable<any> {
+    return this.http.get(`${this.baseUrl}/deleteCliente/${id_cliente}`);
+  }
 }

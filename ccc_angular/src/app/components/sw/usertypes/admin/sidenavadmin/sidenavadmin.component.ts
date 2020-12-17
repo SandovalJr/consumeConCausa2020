@@ -35,4 +35,7 @@ export class SidenavadminComponent implements OnInit {
   public InicioAdmin() {
     this.router.navigateByUrl(`/AdministradorCCC/Inicio_Administrador`);
   }
+  public ListarClientes() {
+    this.router.navigateByUrl(`/AdministradorCCC/Lista_Clientes`);
+  }
 }

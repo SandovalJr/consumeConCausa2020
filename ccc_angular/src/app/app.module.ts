@@ -38,13 +38,18 @@ import { MatIconModule } from "@angular/material/icon";
 import { MatButtonModule } from "@angular/material/button";
 import { MatMenuModule } from "@angular/material/menu";
 import { MatListModule } from "@angular/material/list";
-import {MatToolbarModule} from '@angular/material/toolbar';
-import { InicioadminComponent } from './components/sw/usertypes/admin/inicioadmin/inicioadmin.component';
-import { SidenavEmpresaComponent } from './components/sw/usertypes/empresa/sidenav-empresa/sidenav-empresa.component';
-import { SidenavClienteComponent } from './components/sw/usertypes/cliente/sidenav-cliente/sidenav-cliente.component';
-import { InicioClienteComponent } from './components/sw/usertypes/cliente/inicio-cliente/inicio-cliente.component';
-import { InicioEmpresaComponent } from './components/sw/usertypes/empresa/inicio-empresa/inicio-empresa.component';
-import { ListClientesAdminComponent } from './components/sw/usertypes/admin/list-clientes-admin/list-clientes-admin.component';
+import { MatToolbarModule } from "@angular/material/toolbar";
+import { InicioadminComponent } from "./components/sw/usertypes/admin/inicioadmin/inicioadmin.component";
+import { SidenavEmpresaComponent } from "./components/sw/usertypes/empresa/sidenav-empresa/sidenav-empresa.component";
+import { SidenavClienteComponent } from "./components/sw/usertypes/cliente/sidenav-cliente/sidenav-cliente.component";
+import { InicioClienteComponent } from "./components/sw/usertypes/cliente/inicio-cliente/inicio-cliente.component";
+import { InicioEmpresaComponent } from "./components/sw/usertypes/empresa/inicio-empresa/inicio-empresa.component";
+import { ListClientesAdminComponent } from "./components/sw/usertypes/admin/list-clientes-admin/list-clientes-admin.component";
+
+// BUSCADOR
+import { Ng2SearchPipeModule } from "ng2-search-filter";
+// PAGINACION
+import { NgxPaginationModule } from "ngx-pagination";
 
 @NgModule({
   declarations: [
@@ -90,6 +95,10 @@ import { ListClientesAdminComponent } from './components/sw/usertypes/admin/list
     MatSidenavModule,
     MatListModule,
     MatMenuModule,
+    // Paginacion
+    NgxPaginationModule,
+    // Search
+    Ng2SearchPipeModule,
   ],
   exports: [
     MatTabsModule,
