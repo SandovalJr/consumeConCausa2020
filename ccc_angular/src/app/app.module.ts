@@ -44,6 +44,7 @@ import { SidenavEmpresaComponent } from './components/sw/usertypes/empresa/siden
 import { SidenavClienteComponent } from './components/sw/usertypes/cliente/sidenav-cliente/sidenav-cliente.component';
 import { InicioClienteComponent } from './components/sw/usertypes/cliente/inicio-cliente/inicio-cliente.component';
 import { InicioEmpresaComponent } from './components/sw/usertypes/empresa/inicio-empresa/inicio-empresa.component';
+import { ListClientesAdminComponent } from './components/sw/usertypes/admin/list-clientes-admin/list-clientes-admin.component';
 
 @NgModule({
   declarations: [
@@ -71,6 +72,7 @@ import { InicioEmpresaComponent } from './components/sw/usertypes/empresa/inicio
     SidenavClienteComponent,
     InicioClienteComponent,
     InicioEmpresaComponent,
+    ListClientesAdminComponent,
   ],
   imports: [
     APP_ROUTES,
