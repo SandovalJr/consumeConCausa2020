@@ -33,20 +33,19 @@ const routes: Routes = [
     component: RegistroClientesComponent,
   },
   {
-<<<<<<< HEAD
     path: "AdministradorCCC",
     component: AdminComponent,
     children: [
       { path: "Inicio_Administrador", component: InicioadminComponent },
-    ],
-=======
+    ]
+  },
+  {
     path: "empresa/:id",
     component: EmpresaComponent,
   },
   {
     path: "cliente/:id",
     component: ClienteComponent,
->>>>>>> 0964a12cd1a03c77d98e909b0731ccc7aec544f7
   },
 ];
 
