@@ -65,7 +65,10 @@ export class RegistroClientesComponent implements OnInit {
         RxwebValidators.required(),
         RxwebValidators.alpha(),
       ]),
-      correo: new FormControl(null, [RxwebValidators.required(),RxwebValidators.email()]),
+      correo: new FormControl(null, [
+        RxwebValidators.required(),
+        RxwebValidators.email(),
+      ]),
       telefono: new FormControl(null, [RxwebValidators.required()]),
       fecha_de_nacimiento: new FormControl(null, [RxwebValidators.required()]),
       genero: new FormControl(null, [RxwebValidators.required()]),

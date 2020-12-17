@@ -22,6 +22,7 @@ import { LoginComponent } from "./components/sw/login/login.component";
 import { RegistrosComponent } from "./components/sw/registros/registros.component";
 import { RegistroEmpresaComponent } from "./components/sw/registros/registro-empresa/registro-empresa.component";
 import { RegistroClientesComponent } from "./components/sw/registros/registro-clientes/registro-clientes.component";
+import { EditInfoClienteAdminComponent } from './components/sw/usertypes/admin/list-clientes-admin/edit-info-cliente-admin/edit-info-cliente-admin.component';
 
 // SERVICIOS
 import { MessageErrorsService } from "../app/services/messageError.service";
@@ -78,6 +79,9 @@ import { NgxPaginationModule } from "ngx-pagination";
     InicioClienteComponent,
     InicioEmpresaComponent,
     ListClientesAdminComponent,
+
+    EditInfoClienteAdminComponent,
+
   ],
   imports: [
     APP_ROUTES,

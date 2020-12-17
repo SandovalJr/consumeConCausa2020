@@ -51,4 +51,33 @@ export class ClienteService {
   public EliminarCliente(id_cliente: any): Observable<any> {
     return this.http.get(`${this.baseUrl}/deleteCliente/${id_cliente}`);
   }
+
+  // OBTENER LA INFORMACION DEL CLIENTE
+  public ListInformacionCliente(id_cliente: any): Observable<any> {
+    return this.http.get(`${this.baseUrl}informacionCliente/${id_cliente}`);
+  }
+
+  // ACTUALIZAR INFORMACION CLIENTE
+  public ActInfoClient(
+    id_cliente: any,
+    InfoCliente: TokenPayload
+  ): Observable<any> {
+    // console.log(id);
+    // console.log(InfoCliente);
+    return this.http.put(
+      `${this.baseUrl}actualizarClienteInfo/${id_cliente}`,
+      InfoCliente
+    );
+  }
+  public ActInfoClientMISMAPASSWORD(
+    id_cliente: any,
+    InfoCliente: TokenPayload
+  ): Observable<any> {
+    // console.log(id);
+    // console.log(InfoCliente);
+    return this.http.put(
+      `${this.baseUrl}actualizarClienteInfoSINPASSWORD/${id_cliente}`,
+      InfoCliente
+    );
+  }
 }

@@ -45,7 +45,7 @@ export class ListClientesAdminComponent implements OnInit {
     this.UsuariosListados = [];
     this.clienteService.ListClientes().subscribe(
       (clientes) => {
-        console.log(clientes);
+        // console.log(clientes);
         this.UsuariosListados = clientes;
         this.loading = true;
       },
@@ -84,5 +84,10 @@ export class ListClientesAdminComponent implements OnInit {
     });
   }
 
+  public gotoEdit(id_cliente: any) {
+    this.router.navigateByUrl(
+      `/AdministradorCCC/EditarInformacioCliente/${id_cliente}`
+    );
+  }
 
 }

@@ -12,6 +12,7 @@ import { RegistroClientesComponent } from "../components/sw/registros/registro-c
 import { AdminComponent } from "../components/sw/usertypes/admin/admin.component";
 import { InicioadminComponent } from "../components/sw/usertypes/admin/inicioadmin/inicioadmin.component";
 import { ListClientesAdminComponent } from "../components/sw/usertypes/admin/list-clientes-admin/list-clientes-admin.component";
+import { EditInfoClienteAdminComponent } from "../components/sw/usertypes/admin/list-clientes-admin/edit-info-cliente-admin/edit-info-cliente-admin.component";
 
 // CLIENTE
 import { ClienteComponent } from "../components/sw/usertypes/cliente/cliente.component";
@@ -45,6 +46,10 @@ const routes: Routes = [
     children: [
       { path: "Inicio_Administrador", component: InicioadminComponent },
       { path: "Lista_Clientes", component: ListClientesAdminComponent },
+      {
+        path: "EditarInformacioCliente/:id_cliente",
+        component: EditInfoClienteAdminComponent,
+      },
     ],
   },
   {

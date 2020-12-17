@@ -36,7 +36,6 @@ clientes.get("/informacionCliente/:id_cliente", (req, res) => {
   Cliente.findAll({
     where: {
       id_cliente: req.params.id_cliente,
-
     },
   })
     .then((data) => {
@@ -68,6 +67,35 @@ clientes.get("/deleteCliente/:id_cliente", (req, res) => {
 
 // ACTUALIZAR USUARIO
 clientes.put("/actualizarClienteInfo/:id_cliente", (req, res) => {
+  const userData = {
+    nombre: req.body.nombre,
+    apellidos: req.body.apellidos,
+    correo: req.body.correo,
+    telefono: req.body.telefono,
+    fecha_de_nacimiento: req.body.fecha_de_nacimiento,
+    genero: req.body.genero,
+    password: req.body.password,
+    admin: false,
+  };
+
+  // Encriptar contraseña
+  userData.password = bcrypt.hashSync(userData.password, 10);
+  // res.send(console.log(userData));
+
+  // console.log(userData);
+  Cliente.update(userData, {
+    where: {
+      id_cliente: req.params.id_cliente,
+    },
+  })
+    .then(function (updatedRecords) {
+      res.status(200).json(updatedRecords);
+    })
+    .catch(function (error) {
+      res.status(500).json(error);
+    });
+});
+clientes.put("/actualizarClienteInfoSINPASSWORD/:id_cliente", (req, res) => {
   const userData = {
     nombre: req.body.nombre,
     apellidos: req.body.apellidos,
