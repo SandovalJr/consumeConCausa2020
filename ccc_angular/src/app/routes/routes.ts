@@ -7,6 +7,8 @@ import { LoginComponent } from "../components/sw/login/login.component";
 import { RegistrosComponent } from "../components/sw/registros/registros.component";
 import { RegistroEmpresaComponent } from "../components/sw/registros/registro-empresa/registro-empresa.component";
 import { RegistroClientesComponent } from "../components/sw/registros/registro-clientes/registro-clientes.component";
+import { ClienteComponent } from '../components/sw/usertypes/cliente/cliente.component';
+import { EmpresaComponent } from '../components/sw/usertypes/empresa/empresa.component';
 
 const routes: Routes = [
   { path: "", component: SpaComponent },
@@ -25,6 +27,14 @@ const routes: Routes = [
   {
     path: "Registrate_Cliente",
     component: RegistroClientesComponent,
+  },
+  {
+    path: "empresa/:id",
+    component: EmpresaComponent,
+  },
+  {
+    path: "cliente/:id",
+    component: ClienteComponent,
   },
 ];
 

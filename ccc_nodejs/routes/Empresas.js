@@ -22,6 +22,7 @@ empresas.get("/", (req, res) => {
 empresas.post("/registerEmpresa", (req, res) => {
   const today = new Date().toJSON();
   console.log(today);
+  let tipo = '';
 
   const empresaData = {
     nombre: req.body.nombre,
@@ -96,7 +97,11 @@ empresas.post("/login", async (req, res = response) => {
           ok: false,
           msg: "Correo Erroneo",
         });
+      }else{
+          tipo = 'cliente';
       }
+    }else{
+        tipo = 'empresa';
     }
 
     console.log(usuarioDB);
@@ -114,6 +119,8 @@ empresas.post("/login", async (req, res = response) => {
 
     res.json({
       ok: true,
+      tipo, 
+      datos: usuarioDB
     });
   } catch (error) {
     console.log(error);
