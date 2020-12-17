@@ -7,6 +7,8 @@ import { LoginComponent } from "../components/sw/login/login.component";
 import { RegistrosComponent } from "../components/sw/registros/registros.component";
 import { RegistroEmpresaComponent } from "../components/sw/registros/registro-empresa/registro-empresa.component";
 import { RegistroClientesComponent } from "../components/sw/registros/registro-clientes/registro-clientes.component";
+import { ClienteComponent } from '../components/sw/usertypes/cliente/cliente.component';
+import { EmpresaComponent } from '../components/sw/usertypes/empresa/empresa.component';
 
 // ADMINISTRADOR
 import { AdminComponent } from "../components/sw/usertypes/admin/admin.component";
@@ -31,11 +33,20 @@ const routes: Routes = [
     component: RegistroClientesComponent,
   },
   {
+<<<<<<< HEAD
     path: "AdministradorCCC",
     component: AdminComponent,
     children: [
       { path: "Inicio_Administrador", component: InicioadminComponent },
     ],
+=======
+    path: "empresa/:id",
+    component: EmpresaComponent,
+  },
+  {
+    path: "cliente/:id",
+    component: ClienteComponent,
+>>>>>>> 0964a12cd1a03c77d98e909b0731ccc7aec544f7
   },
 ];
 
