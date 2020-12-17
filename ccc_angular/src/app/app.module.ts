@@ -26,9 +26,20 @@ import { RegistroClientesComponent } from "./components/sw/registros/registro-cl
 // SERVICIOS
 import { MessageErrorsService } from "../app/services/messageError.service";
 import { ClienteService } from "../app/services/registerCliente.service";
-import { AdminComponent } from './components/sw/usertypes/admin/admin.component';
-import { ClienteComponent } from './components/sw/usertypes/cliente/cliente.component';
-import { EmpresaComponent } from './components/sw/usertypes/empresa/empresa.component';
+import { AdminComponent } from "./components/sw/usertypes/admin/admin.component";
+import { ClienteComponent } from "./components/sw/usertypes/cliente/cliente.component";
+import { EmpresaComponent } from "./components/sw/usertypes/empresa/empresa.component";
+import { SidenavadminComponent } from "./components/sw/usertypes/admin/sidenavadmin/sidenavadmin.component";
+
+// ANGULAR MATERIAL
+import { MatSidenavModule } from "@angular/material/sidenav";
+import { MatTabsModule } from "@angular/material/tabs";
+import { MatIconModule } from "@angular/material/icon";
+import { MatButtonModule } from "@angular/material/button";
+import { MatMenuModule } from "@angular/material/menu";
+import { MatListModule } from "@angular/material/list";
+import {MatToolbarModule} from '@angular/material/toolbar';
+import { InicioadminComponent } from './components/sw/usertypes/admin/inicioadmin/inicioadmin.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +61,8 @@ import { EmpresaComponent } from './components/sw/usertypes/empresa/empresa.comp
     AdminComponent,
     ClienteComponent,
     EmpresaComponent,
+    SidenavadminComponent,
+    InicioadminComponent,
   ],
   imports: [
     APP_ROUTES,
@@ -59,6 +72,23 @@ import { EmpresaComponent } from './components/sw/usertypes/empresa/empresa.comp
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    // ANGULAR MATERIAL
+    MatButtonModule,
+    MatIconModule,
+    MatTabsModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatListModule,
+    MatMenuModule,
+  ],
+  exports: [
+    MatTabsModule,
+    MatSidenavModule,
+    MatButtonModule,
+    MatIconModule,
+    MatToolbarModule,
+    MatListModule,
+    MatMenuModule,
   ],
   providers: [ClienteService],
   bootstrap: [AppComponent],
