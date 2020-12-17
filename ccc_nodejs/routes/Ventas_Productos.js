@@ -40,6 +40,84 @@ ventasproductos.post("/RegisterVentaProductos", (req, res) => {
     });
 });
 
+//(list)  Mostrar las compras de cada cliente estatus no pagado
+ventasproductos.get("/ListNPVentas/:correo", (req, res) => {
+  VentProdu.findAll({
+    where: {
+      correo: req.params.correo,
+      estatus_compra: "No Pagado",
+    },
+  })
+    .then((data) => {
+      if (data) {
+        res.json(data);
+      } else {
+        res.send("data no hay");
+      }
+    })
+    .catch((errr) => {
+      res.send("error" + errr);
+    });
+});
+
+//(list)  Mostrar las compras de cada cliente estatus pagado
+ventasproductos.get("/ListPVentas/:correo", (req, res) => {
+  VentProdu.findAll({
+    where: {
+      correo: req.params.correo,
+      estatus_compra: "Pagado",
+    },
+  })
+    .then((data) => {
+      if (data) {
+        res.json(data);
+      } else {
+        res.send("data no hay");
+      }
+    })
+    .catch((errr) => {
+      res.send("error" + errr);
+    });
+});
+
+//(list)  Mostrar las donaciones a las empresas en general (aun no pagadas)
+ventasproductos.get("/ListEmpresaVentasNoPagadas", (req, res) => {
+  VentProdu.findAll({
+    where: {
+      estatus_compra: "No Pagado",
+    },
+  })
+    .then((data) => {
+      if (data) {
+        res.json(data);
+      } else {
+        res.send("data no hay");
+      }
+    })
+    .catch((errr) => {
+      res.send("error" + errr);
+    });
+});
+
+// (list) Mostrar las donaciones a las empresas en general (pagadas)
+ventasproductos.get("/ListEmpresasVentasPagadas", (req, res) => {
+  VentProdu.findAll({
+    where: {
+      estatus_compra: "Pagado",
+    },
+  })
+    .then((data) => {
+      if (data) {
+        res.json(data);
+      } else {
+        res.send("data no hay");
+      }
+    })
+    .catch((errr) => {
+      res.send("error" + errr);
+    });
+});
+
 //(actualizar status) Validar que ya fue entregada la entrega ()
 ventasproductos.put("/actualizarAPagado/:id_ventap", (req, res) => {
   const datapagado = {
@@ -58,10 +136,6 @@ ventasproductos.put("/actualizarAPagado/:id_ventap", (req, res) => {
       res.status(500).json(error);
     });
 });
-
-
-
-
 
 module.exports = ventasproductos;
 // ESTUS:
