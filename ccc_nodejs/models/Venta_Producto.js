@@ -2,7 +2,7 @@ const Sequelize = require("sequelize"); //para usar el modelo del user
 const db = require("../database/db.js");
 
 module.exports = db.sequelize.define(
-  "VentasProductos",
+  "ventas_productos",
   {
     id_ventap: {
       type: Sequelize.INTEGER,

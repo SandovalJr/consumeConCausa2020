@@ -12,6 +12,7 @@ import {
   FormBuilder,
   FormGroup,
 } from "@angular/forms";
+import { Router } from "@angular/router";
 
 import {
   RxwebValidators,
@@ -48,7 +49,7 @@ export class RegistroEmpresaComponent implements OnInit {
   };
 
   constructor(
-    private fb: FormBuilder,
+    private router: Router,
     private registerService: RegisterService,
     private MessageErrorSvr: MessageErrorsService
   ) {}
@@ -65,7 +66,10 @@ export class RegistroEmpresaComponent implements OnInit {
       ]),
       apellidos: new FormControl(null, [RxwebValidators.required()]),
       nombre_empresa: new FormControl(null, [RxwebValidators.required()]),
-      correo: new FormControl(null, [RxwebValidators.required()]),
+      correo: new FormControl(null, [
+        RxwebValidators.required(),
+        RxwebValidators.email(),
+      ]),
       telefono: new FormControl(null, [RxwebValidators.required()]),
       giro_empresa: new FormControl(null, [RxwebValidators.required()]),
       direccion: new FormControl(null, [RxwebValidators.required()]),
@@ -91,7 +95,12 @@ export class RegistroEmpresaComponent implements OnInit {
     if (this.formulario.valid) {
       this.registerService.registroEmpresa(this.formulario.value).subscribe(
         (resp) => {
-          Swal.fire("Registro Completo", "Espera validacion", "success");
+          Swal.fire(
+            "Registro Completo",
+            "Espera la validacion de tu empresa",
+            "success"
+          );
+          this.router.navigateByUrl(``);
         },
         (err) => {
           Swal.fire("Error", "Algo ha fallado", "error");
