@@ -49,11 +49,16 @@ export interface TokenPayloadE {
   providedIn: "root",
 })
 export class RegisterService {
-  baseUrl = "http://localhost:3000";
+  baseUrl = "http://localhost:3000/api/empresa/";
 
   constructor(private http: HttpClient) {}
 
+  // REGISTRAR EMPRESA
   public registroEmpresa(Datos: any) {
-    return this.http.post(`${this.baseUrl}/api/empresa/registerEmpresa`, Datos);
+    return this.http.post(`${this.baseUrl}registerEmpresa`, Datos);
   }
+  // LISTAR TODAS LAS EMPRESAS
+  // public ListClientes(): Observable<any> {
+  //   return this.http.get(`${this.baseUrl}listarclientes`);
+  // }
 }
