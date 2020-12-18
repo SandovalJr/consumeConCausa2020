@@ -58,7 +58,7 @@ export class RegisterService {
     return this.http.post(`${this.baseUrl}registerEmpresa`, Datos);
   }
   // LISTAR TODAS LAS EMPRESAS YA SEA APROBADAS (1) O NO APROBADAS (0)
-  public ListClientes(status: any): Observable<any> {
+  public ListEmpresas(status: any): Observable<any> {
     return this.http.get(`${this.baseUrl}ListarEmpresasPorStatus/${status}`);
   }
 
