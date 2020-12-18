@@ -22,7 +22,7 @@ empresas.get("/", (req, res) => {
 empresas.post("/registerEmpresa", (req, res) => {
   const today = new Date().toJSON();
   console.log(today);
-  let tipo = '';
+  let tipo = "";
 
   const empresaData = {
     nombre: req.body.nombre,
@@ -39,8 +39,9 @@ empresas.post("/registerEmpresa", (req, res) => {
     imagen: req.body.imagen,
     created: today,
     link_fb: req.body.link_fb,
-    link_whatsapp: req.body.link_fb,
-    password: `https://api.whatsapp.com/send?phone=52` + req.body.password,
+    link_whatsapp:
+      `https://api.whatsapp.com/send?phone=52` + req.body.link_whatsapp,
+    password: req.body.password,
     status: 0,
   };
 
@@ -97,11 +98,11 @@ empresas.post("/login", async (req, res = response) => {
           ok: false,
           msg: "Correo Erroneo",
         });
-      }else{
-          tipo = 'cliente';
+      } else {
+        tipo = "cliente";
       }
-    }else{
-        tipo = 'empresa';
+    } else {
+      tipo = "empresa";
     }
 
     console.log(usuarioDB);
@@ -119,8 +120,8 @@ empresas.post("/login", async (req, res = response) => {
 
     res.json({
       ok: true,
-      tipo, 
-      datos: usuarioDB
+      tipo,
+      datos: usuarioDB,
     });
   } catch (error) {
     console.log(error);
@@ -129,6 +130,77 @@ empresas.post("/login", async (req, res = response) => {
       msg: "Contacte al administrador",
     });
   }
+});
+
+// listar empresas si estan o no aprobadas
+empresas.get("/ListarEmpresasPorStatus/:status", (req, res) => {
+  Empresa.findAll({
+    where: {
+      status: req.params.status,
+    },
+  })
+    .then((data) => {
+      if (data) {
+        res.json(data);
+      } else {
+        res.send("data no hay");
+      }
+    })
+    .catch((errr) => {
+      res.send("error" + errr);
+    });
+});
+
+// Actualizar empresa a aprovada
+empresas.put("/AprobarEmpresa/:id_empresa", (req, res) => {
+  const userData = {
+    status: req.body.status,
+  };
+  Empresa.update(userData, {
+    where: {
+      id_empresa: req.params.id_empresa,
+    },
+  })
+    .then(function (updatedRecords) {
+      res.status(200).json(updatedRecords);
+    })
+    .catch(function (error) {
+      res.status(500).json(error);
+    });
+});
+
+// Informacion de una Empresa
+empresas.get("/InformacionEmpresa/:id_empresa", (req, res) => {
+  Empresa.findAll({
+    where: {
+      id_empresa: req.params.id_empresa,
+    },
+  })
+    .then((data) => {
+      if (data) {
+        res.json(data);
+      } else {
+        res.send("data no hay");
+      }
+    })
+    .catch((errr) => {
+      res.send("error" + errr);
+    });
+});
+
+// Eliminar una empresa
+empresas.get("/EliminarEmpresa/:id_empresa", (req, res) => {
+  Empresa.destroy({
+    where: {
+      id_empresa: req.params.id_empresa,
+    },
+  })
+    .then(function (deletedRecords) {
+      res.status(200).json(deletedRecords);
+    })
+    .catch(function (error) {
+      res.status(500).json(error);
+    });
 });
 
 module.exports = empresas;
