@@ -57,33 +57,32 @@ const routes: Routes = [
         component: EditInfoClienteAdminComponent,
       },
       {
-        path:"EmpresasAceptadas/:status",
+        path: "EmpresasAceptadas/:status",
         component: EmpresasAceptadasComponent,
       },
       {
-        path:"Empresas_EnEspera/:status",
+        path: "Empresas_EnEspera/:status",
         component: EmpresasEnEsperaComponent,
       },
       {
-        path:"Informacion_Empresa/:id_empresa",
+        path: "Informacion_Empresa/:id_empresa",
         component: VerInfoEmpresaComponent,
-      }
-      ,
+      },
       {
-        path:"EditarInformacionEmpresa/:id_empresa",
+        path: "EditarInformacionEmpresa/:id_empresa",
         component: EditarinfoEmpresaComponent,
-      }
+      },
     ],
   },
   {
     path: "empresa/:id",
     component: EmpresaComponent,
-    children: [{ path: "Inicio_Cliente", component: InicioClienteComponent }],
+    children: [{ path: "Inicio_Empresa", component: InicioEmpresaComponent }],
   },
   {
     path: "cliente/:id",
     component: ClienteComponent,
-    children: [{ path: "Inicio_Empresa", component: InicioEmpresaComponent }],
+    children: [{ path: "Inicio_Cliente", component: InicioClienteComponent }],
   },
 ];
 

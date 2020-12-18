@@ -57,10 +57,7 @@ export class RegistroClientesComponent implements OnInit {
 
   public creatForm() {
     this.formulario = new FormGroup({
-      nombre: new FormControl(null, [
-        RxwebValidators.required(),
-        RxwebValidators.alpha(),
-      ]),
+      nombre: new FormControl(null, [RxwebValidators.required()]),
       apellidos: new FormControl(null, [
         RxwebValidators.required(),
         RxwebValidators.alpha(),
@@ -94,7 +91,8 @@ export class RegistroClientesComponent implements OnInit {
               "Presiona para continuar..",
               "success"
             );
-            this.router.navigateByUrl(`/LogIn`);
+            // window.location.reload();
+            this.router.navigateByUrl(``);
           },
           (err) => {
             Swal.fire({

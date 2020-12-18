@@ -2,7 +2,11 @@
   <div class="limiter">
     <div class="container-login100">
       <div class="wrap-login100">
-        <form class="login100-form validate-form" [formGroup]="loginForm" (ngSubmit)="login()">
+        <form
+          class="login100-form validate-form"
+          [formGroup]="loginForm"
+          (ngSubmit)="login()"
+        >
           <span class="login100-form-title p-b-26">
             <img src="../../../../assets/logo.png" alt="" />
           </span>
@@ -14,8 +18,13 @@
             class="wrap-input100 validate-input"
             data-validate="Valid email is: a@b.c"
           >
-            <input class="input100" type="text" name="email" formControlName="correo"/>
-            <span class="focus-input100" data-placeholder="Email"></span>
+            <input
+              class="input100"
+              type="text"
+              name="email"
+              placeholder="Email"
+              formControlName="correo"
+            />
           </div>
 
           <div
@@ -25,8 +34,13 @@
             <span class="btn-show-pass">
               <i class="zmdi zmdi-eye"></i>
             </span>
-            <input class="input100" type="password" name="pass" formControlName="password" />
-            <span class="focus-input100" data-placeholder="Password"></span>
+            <input
+              class="input100"
+              type="password"
+              name="pass"
+              placeholder="Password"
+              formControlName="password"
+            />
           </div>
 
           <div class="container-login100-form-btn">
@@ -41,11 +55,6 @@
             </button>
           </div>
 
-          <div class="text-center p-t-115">
-            <span class="txt1"> No tienes cuenta? </span>
-
-            <a class="txt2" routerLink="../Resgistrate"> Registrate </a>
-          </div>
         </form>
       </div>
     </div>
