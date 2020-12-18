@@ -95,6 +95,11 @@ public verEmpresaInfo(id_empresa:any){
     `/AdministradorCCC/Informacion_Empresa/${id_empresa}`
   );
 }
+public EditarInfoEmpresa(id_empresa:any){
+  this.router.navigateByUrl(
+    `/AdministradorCCC/EditarInformacionEmpresa/${id_empresa}`
+  );
+}
 
 }
 

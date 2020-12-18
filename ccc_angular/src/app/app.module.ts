@@ -54,6 +54,7 @@ import { NgxPaginationModule } from "ngx-pagination";
 import { EmpresasAceptadasComponent } from './components/sw/usertypes/admin/listEmpresas/empresas-aceptadas/empresas-aceptadas.component';
 import { EmpresasEnEsperaComponent } from './components/sw/usertypes/admin/listEmpresas/empresas-en-espera/empresas-en-espera.component';
 import { VerInfoEmpresaComponent } from './components/sw/usertypes/admin/listEmpresas/ver-info-empresa/ver-info-empresa.component';
+import { EditarinfoEmpresaComponent } from './components/sw/usertypes/admin/listEmpresas/editarinfo-empresa/editarinfo-empresa.component';
 
 @NgModule({
   declarations: [
@@ -90,6 +91,8 @@ import { VerInfoEmpresaComponent } from './components/sw/usertypes/admin/listEmp
     EmpresasEnEsperaComponent,
 
     VerInfoEmpresaComponent,
+
+    EditarinfoEmpresaComponent,
 
   ],
   imports: [

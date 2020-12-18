@@ -15,7 +15,6 @@ import { ListClientesAdminComponent } from "../components/sw/usertypes/admin/lis
 import { EditInfoClienteAdminComponent } from "../components/sw/usertypes/admin/list-clientes-admin/edit-info-cliente-admin/edit-info-cliente-admin.component";
 import { EmpresasAceptadasComponent } from "../components/sw/usertypes/admin/listEmpresas/empresas-aceptadas/empresas-aceptadas.component";
 import { EmpresasEnEsperaComponent } from "../components/sw/usertypes/admin/listEmpresas/empresas-en-espera/empresas-en-espera.component";
-import { VerInfoEmpresaComponent } from "../components/sw/usertypes/admin/listEmpresas/ver-info-empresa/ver-info-empresa.component";
 
 // CLIENTE
 import { ClienteComponent } from "../components/sw/usertypes/cliente/cliente.component";
@@ -24,6 +23,10 @@ import { InicioClienteComponent } from "../components/sw/usertypes/cliente/inici
 // EMPRESA
 import { EmpresaComponent } from "../components/sw/usertypes/empresa/empresa.component";
 import { InicioEmpresaComponent } from "../components/sw/usertypes/empresa/inicio-empresa/inicio-empresa.component";
+
+// GENERAL
+import { EditarinfoEmpresaComponent } from "../components/sw/usertypes/admin/listEmpresas/editarinfo-empresa/editarinfo-empresa.component";
+import { VerInfoEmpresaComponent } from "../components/sw/usertypes/admin/listEmpresas/ver-info-empresa/ver-info-empresa.component";
 
 const routes: Routes = [
   { path: "", component: SpaComponent },
@@ -64,6 +67,11 @@ const routes: Routes = [
       {
         path:"Informacion_Empresa/:id_empresa",
         component: VerInfoEmpresaComponent,
+      }
+      ,
+      {
+        path:"EditarInformacionEmpresa/:id_empresa",
+        component: EditarinfoEmpresaComponent,
       }
     ],
   },
