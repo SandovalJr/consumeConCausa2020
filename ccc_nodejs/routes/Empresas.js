@@ -3,10 +3,21 @@ const empresas = express.Router();
 const cors = require("cors");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
+const fileUpload = require("express-fileupload");
 
 const Empresa = require("../models/Empresa");
 const Cliente = require("../models/Cliente");
 const { response } = require("express");
+
+const fs = require("fs");
+const path = require("path");
+
+const cloudinary = require('cloudinary').v2;
+cloudinary.config({
+    cloud_name: 'wolf-code',
+    api_key: '622561925972199',
+    api_secret: '1QsmR8t0FawDTGPeYsXqkhnhL04'
+});
 
 empresas.use(cors());
 
@@ -24,6 +35,39 @@ empresas.post("/registerEmpresa", (req, res) => {
   console.log(today);
   let tipo = "";
 
+  console.log(req.files);
+
+  let archivo;
+  let extencionesValidas;
+  let extencion;
+
+  if(req.files){
+    archivo = req.files.imagen;
+    let nombreCortado = archivo.name.split('.');
+    extencion = nombreCortado[nombreCortado.length - 1];
+    extencionesValidas = ["png", "jpg", "gif", "jpeg"];
+
+    if (extencionesValidas.indexOf(extencion) < 0) {
+      return res.status(400).json({
+          ok: false,
+          err: {
+              message: "Las extenciones permitidas son " + extencionesValidas.join(","),
+              ext: extencion,
+          },
+      });
+    }
+
+    let nombreArchivo = `${id} - ${new Date().getMilliseconds()}`;
+
+    cloudinary.uploader.upload(archivo.tempFilePath, {public_id: `Causas/${nombreArchivo}`, tags: `blog`}, 
+        function(err, image){
+            if(err) res.send(err);
+            console.log('File upload with cloudinary');
+            // res.json(image);
+        }
+    )
+  }
+
   const empresaData = {
     nombre: req.body.nombre,
     apellidos: req.body.apellidos,
@@ -36,7 +80,7 @@ empresas.post("/registerEmpresa", (req, res) => {
     ciudad: req.body.ciudad,
     rfc: req.body.rfc,
     descripcion: req.body.descripcion,
-    imagen: req.body.imagen,
+    imagen: `${req.files.name}.${extencion}`,//req.body.imagen,
     created: today,
     link_fb: req.body.link_fb,
     link_whatsapp:
