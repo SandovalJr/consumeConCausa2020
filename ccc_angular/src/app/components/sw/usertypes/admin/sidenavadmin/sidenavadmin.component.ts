@@ -15,6 +15,11 @@ export class SidenavadminComponent implements OnInit {
       route: "/AdministradorCCC/Inicio_Administrador",
       icon: "home",
     },
+    {
+      name: "Clientes",
+      route: "/AdministradorCCC/Lista_Clientes",
+      icon: "people_outline",
+    },
   ];
   private _mobileQueryListener: () => void;
   constructor(

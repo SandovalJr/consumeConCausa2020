@@ -65,4 +65,9 @@ export class RegisterService {
   public EliminarEmpresa(id_empresa: any) {
     return this.http.get(`${this.baseUrl}/EliminarEmpresa/${id_empresa}`);
   }
+
+  public InfoEmpresa(id_empresa: any): Observable<any> {
+    return this.http.get(`${this.baseUrl}InformacionEmpresa/${id_empresa}`);
+  }
+
 }

@@ -83,15 +83,20 @@
           <td class="tc">{{ empresa.giro_empresa }}</td>
           <td class="tc">{{ empresa.correo }}</td>
           <td class="operacionesBoton">
-            <button class="btn btn-outline-danger mr-2 mt-2" (click)="EliminarEmpresa(empresa.id_empresa)">
+            <button
+              class="btn btn-outline-danger mr-2 mt-2"
+              (click)="EliminarEmpresa(empresa.id_empresa)"
+            >
               <mat-icon>delete_forever</mat-icon>
             </button>
-            <button class="btn btn-outline-warning  mr-2 mt-2">
+            <button class="btn btn-outline-warning mr-2 mt-2">
               <mat-icon>edit</mat-icon>
             </button>
-            <button class="btn btn-outline-info mt-2">
-              <mat-icon>remove_red_eye
-              </mat-icon>
+            <button
+              class="btn btn-outline-info mt-2"
+              (click)="verEmpresaInfo(empresa.id_empresa)"
+            >
+              <mat-icon>remove_red_eye </mat-icon>
             </button>
           </td>
         </tr>

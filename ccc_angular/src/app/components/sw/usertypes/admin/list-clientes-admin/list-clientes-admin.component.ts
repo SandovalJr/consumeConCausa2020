@@ -5,8 +5,6 @@ import {
   ElementRef,
   AfterViewInit,
 } from "@angular/core";
-import { fromEvent } from "rxjs";
-import { debounceTime, take, pluck, switchMap } from "rxjs/operators";
 import { Routes, Router } from "@angular/router";
 import { HttpClient, HttpClientModule } from "@angular/common/http";
 import {

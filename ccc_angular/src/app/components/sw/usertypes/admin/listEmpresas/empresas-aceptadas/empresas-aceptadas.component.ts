@@ -89,4 +89,12 @@ export class EmpresasAceptadasComponent implements OnInit {
       }
     });
   }
+
+public verEmpresaInfo(id_empresa:any){
+  this.router.navigateByUrl(
+    `/AdministradorCCC/Informacion_Empresa/${id_empresa}`
+  );
 }
+
+}
+
