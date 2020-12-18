@@ -62,5 +62,7 @@ export class RegisterService {
     return this.http.get(`${this.baseUrl}ListarEmpresasPorStatus/${status}`);
   }
 
-
+  public EliminarEmpresa(id_empresa: any) {
+    return this.http.get(`${this.baseUrl}/EliminarEmpresa/${id_empresa}`);
+  }
 }

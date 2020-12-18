@@ -66,4 +66,27 @@ export class EmpresasAceptadasComponent implements OnInit {
     this.listEmpresa();
   }
 
+  public EliminarEmpresa(id_empresa: any) {
+    Swal.fire({
+      title: "Seguro que quieres eliminarlo?",
+      text: "No podras volver atras!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#00a441",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Si , Eliminar",
+    }).then((result) => {
+      if (result.value) {
+        this.EmpresasService.EliminarEmpresa(id_empresa).subscribe(
+          () => {
+            window.location.reload();
+            // console.log("Eliminado con exito");
+          },
+          (err) => {
+            console.log(err);
+          }
+        );
+      }
+    });
+  }
 }
