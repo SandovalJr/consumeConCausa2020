@@ -62,7 +62,6 @@ export class RegistroEmpresaComponent implements OnInit {
     this.formulario = new FormGroup({
       nombre: new FormControl(null, [
         RxwebValidators.required(),
-        RxwebValidators.alpha(),
       ]),
       apellidos: new FormControl(null, [RxwebValidators.required()]),
       nombre_empresa: new FormControl(null, [RxwebValidators.required()]),

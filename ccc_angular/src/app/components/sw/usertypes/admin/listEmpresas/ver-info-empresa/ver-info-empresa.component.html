@@ -143,9 +143,20 @@
               class="form-control"
               placeholder="Nombre de la empresa"
               formControlName="nombre_empresa"
+              [(ngModel)]="credentialsEmpresa.nombre_empresa"
+                [ngClass]="{
+                  'is-valid': ValidarFormulario('nombre_empresa').error == false,
+                  'is-invalid': ValidarFormulario('nombre_empresa').error == true
+                }"
             />
             <label>Nombre de la empresa</label>
           </div>
+          <div
+          *ngIf="ValidarFormulario('nombre_empresa').error"
+          class="text-center invalid-feedback d-block"
+        >
+          {{ ValidarFormulario("nombre_empresa").message }}
+        </div>
         </div>
         <!-- Grid column -->
 
@@ -218,6 +229,11 @@
               class="form-control"
               placeholder="Codigo Postal"
               formControlName="cp"
+              [(ngModel)]="credentialsEmpresa.cp"
+              [ngClass]="{
+                'is-valid': ValidarFormulario('cp').error == false,
+                'is-invalid': ValidarFormulario('cp').error == true
+              }"
             />
             <label>Codigo Postal</label>
           </div>

@@ -62,12 +62,41 @@ export class RegisterService {
     return this.http.get(`${this.baseUrl}ListarEmpresasPorStatus/${status}`);
   }
 
+  // ELIMINAR EMPRESA
   public EliminarEmpresa(id_empresa: any) {
     return this.http.get(`${this.baseUrl}/EliminarEmpresa/${id_empresa}`);
   }
 
+  // INFORMACION DE UNA EMPRESA
   public InfoEmpresa(id_empresa: any): Observable<any> {
     return this.http.get(`${this.baseUrl}InformacionEmpresa/${id_empresa}`);
+  }
+  // ACTUALIZAR INFORMACION CLIENTE
+
+  // SIN PASSWORD
+  public ActuInfoEmpresaSinPassword(
+    id_empresa: any,
+    infoEmpresa: TokenPayloadE
+  ): Observable<any> {
+    // console.log(id);
+    // console.log(InfoCliente);
+    return this.http.put(
+      `${this.baseUrl}ActEmpresaSinpassword/${id_empresa}`,
+      infoEmpresa
+    );
+  }
+
+  //CON PASSWORD
+  public ActuInfoEmpresaConPassword(
+    id_empresa: any,
+    infoEmpresa: TokenPayloadE
+  ): Observable<any> {
+    // console.log(id);
+    console.log(infoEmpresa);
+    return this.http.put(
+      `${this.baseUrl}ActEmpresaConPassword/${id_empresa}`,
+      infoEmpresa
+    );
   }
 
 }

@@ -33,6 +33,7 @@ export class EditarinfoEmpresaComponent implements OnInit {
   public formulario: FormGroup;
   details: UserDetailsE;
   public infoEmpresat: TokenPayloadE;
+  public passwordAnterior: any;
 
   credentialsEmpresa: TokenPayloadE = {
     id_empresa: 0,
@@ -58,7 +59,6 @@ export class EditarinfoEmpresaComponent implements OnInit {
     private MessageErrorSvr: MessageErrorsService,
     private activatedRouter: ActivatedRoute
   ) {}
-
 
   ngOnInit(): void {
     this.infoEmpresa();
@@ -89,6 +89,7 @@ export class EditarinfoEmpresaComponent implements OnInit {
 
         // console.log(dataCliente);
         // console.log(this.passwordAnterior);
+        this.passwordAnterior = this.infoEmpresat[0].password;
       },
       (err) => {
         console.log(err);
@@ -98,10 +99,7 @@ export class EditarinfoEmpresaComponent implements OnInit {
 
   public creatForm() {
     this.formulario = new FormGroup({
-      nombre: new FormControl(null, [
-        RxwebValidators.required(),
-        RxwebValidators.alpha(),
-      ]),
+      nombre: new FormControl(null, [RxwebValidators.required()]),
       apellidos: new FormControl(null, [RxwebValidators.required()]),
       nombre_empresa: new FormControl(null, [RxwebValidators.required()]),
       correo: new FormControl(null, [
@@ -129,6 +127,79 @@ export class EditarinfoEmpresaComponent implements OnInit {
     );
   }
 
+  public ACTeMPRESA() {
+    const id_empresa = this.activatedRouter.snapshot.paramMap.get("id_empresa");
+    // console.log(this.credentialsEmpresa);
+    // console.log(this.formulario);
+    if (this.formulario.valid) {
+      if (this.passwordAnterior === this.credentialsEmpresa.password) {
+        // console.log("same pass");
 
+        this.EmpresasService.ActuInfoEmpresaSinPassword(
+          id_empresa,
+          this.credentialsEmpresa
+        ).subscribe(
+          () => {
+            Swal.fire(
+              "Se Actualizo Correctamente",
+              "Presiona para continuar..",
+              "success"
+            );
+            this.router.navigateByUrl(`/AdministradorCCC/EmpresasAceptadas/1`);
+          },
+          (err) => {
+            Swal.fire({
+              icon: "error",
+              title: "Oops...",
+              text: "Ocurrio un error",
+            });
+            console.error(err);
+          }
+        );
+      } else if (!this.formulario.valid) {
+        Swal.fire({
+          title: "Campos Incompletos!",
+          text: "completa todos para continuar",
+          icon: "warning",
+        });
+      }
+    } else {
+      Swal.fire({
+        title: "Campos Incompletos!",
+        text: "completa todos para continuar",
+        icon: "warning",
+      });
+    }
+    if (this.passwordAnterior != this.credentialsEmpresa.password) {
+      console.log("anteriorpassw");
 
+      this.EmpresasService.ActuInfoEmpresaConPassword(
+        id_empresa,
+        this.credentialsEmpresa
+      ).subscribe(
+        () => {
+          Swal.fire(
+            "Se Actualizo Correctamente",
+            "Presiona para continuar..",
+            "success"
+          );
+          this.router.navigateByUrl(`/AdministradorCCC/EmpresasAceptadas/1`);
+        },
+        (err) => {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Ocurrio un error",
+          });
+          console.error(err);
+        }
+      );
+    } else {
+      Swal.fire({
+        title: "Campos Incompletos!",
+        text: "completa todos para continuar",
+        icon: "warning",
+      });
+    }
+  }
 }

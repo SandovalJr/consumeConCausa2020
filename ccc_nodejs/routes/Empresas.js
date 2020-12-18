@@ -203,4 +203,69 @@ empresas.get("/EliminarEmpresa/:id_empresa", (req, res) => {
     });
 });
 
+// Actualizar datos de la empresa
+// SIN PASSOWRD
+empresas.put("/ActEmpresaSinpassword/:id_empresa", (req, res) => {
+  const userData = {
+    nombre: req.body.nombre,
+    apellidos: req.body.apellidos,
+    nombre_empresa: req.body.nombre_empresa,
+    correo: req.body.correo,
+    telefono: req.body.telefono,
+    giro_empresa: req.body.giro_empresa,
+    direccion: req.body.direccion,
+    cp: req.body.cp,
+    ciudad: req.body.ciudad,
+    rfc: req.body.rfc,
+    descripcion: req.body.descripcion,
+    link_fb: req.body.link_fb,
+    link_whatsapp:
+      `https://api.whatsapp.com/send?phone=52` + req.body.link_whatsapp,
+  };
+  Empresa.update(userData, {
+    where: {
+      id_empresa: req.params.id_empresa,
+    },
+  })
+    .then(function (updatedRecords) {
+      res.status(200).json(updatedRecords);
+    })
+    .catch(function (error) {
+      res.status(500).json(error);
+    });
+});
+// CON PASSWORD
+empresas.put("/ActEmpresaConPassword/:id_empresa", (req, res) => {
+  const userData = {
+    nombre: req.body.nombre,
+    apellidos: req.body.apellidos,
+    nombre_empresa: req.body.nombre_empresa,
+    correo: req.body.correo,
+    telefono: req.body.telefono,
+    giro_empresa: req.body.giro_empresa,
+    direccion: req.body.direccion,
+    cp: req.body.cp,
+    ciudad: req.body.ciudad,
+    rfc: req.body.rfc,
+    descripcion: req.body.descripcion,
+    link_fb: req.body.link_fb,
+    link_whatsapp:
+      `https://api.whatsapp.com/send?phone=52` + req.body.link_whatsapp,
+    password: req.body.password,
+  };
+  userData.password = bcrypt.hashSync(req.body.password, 10);
+
+  Empresa.update(userData, {
+    where: {
+      id_empresa: req.params.id_empresa,
+    },
+  })
+    .then(function (updatedRecords) {
+      res.status(200).json(updatedRecords);
+    })
+    .catch(function (error) {
+      res.status(500).json(error);
+    });
+});
+
 module.exports = empresas;

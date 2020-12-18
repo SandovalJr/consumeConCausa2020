@@ -107,7 +107,10 @@ export class EditInfoClienteAdminComponent implements OnInit {
         this.passwordAnterior === this.crendentialsRegister_Clientes.password
       ) {
         this.serviceCliente
-          .ActInfoClientMISMAPASSWORD(id_cliente, this.crendentialsRegister_Clientes)
+          .ActInfoClientMISMAPASSWORD(
+            id_cliente,
+            this.crendentialsRegister_Clientes
+          )
           .subscribe(
             () => {
               Swal.fire(
@@ -133,9 +136,14 @@ export class EditInfoClienteAdminComponent implements OnInit {
           icon: "warning",
         });
       }
-    } else if (
-      this.passwordAnterior != this.crendentialsRegister_Clientes.password
-    ) {
+    } else {
+      Swal.fire({
+        title: "Campos Incompletos!",
+        text: "completa todos para continuar",
+        icon: "warning",
+      });
+    }
+    if (this.passwordAnterior != this.crendentialsRegister_Clientes.password) {
       this.serviceCliente
         .ActInfoClient(id_cliente, this.crendentialsRegister_Clientes)
         .subscribe(
