@@ -51,7 +51,8 @@ import { ListClientesAdminComponent } from "./components/sw/usertypes/admin/list
 import { Ng2SearchPipeModule } from "ng2-search-filter";
 // PAGINACION
 import { NgxPaginationModule } from "ngx-pagination";
-import { ListEmpresasComponent } from './components/sw/usertypes/admin/list-empresas/list-empresas.component';
+import { EmpresasAceptadasComponent } from './components/sw/usertypes/admin/listEmpresas/empresas-aceptadas/empresas-aceptadas.component';
+import { EmpresasEnEsperaComponent } from './components/sw/usertypes/admin/listEmpresas/empresas-en-espera/empresas-en-espera.component';
 
 @NgModule({
   declarations: [
@@ -83,7 +84,9 @@ import { ListEmpresasComponent } from './components/sw/usertypes/admin/list-empr
 
     EditInfoClienteAdminComponent,
 
-    ListEmpresasComponent,
+    EmpresasAceptadasComponent,
+
+    EmpresasEnEsperaComponent,
 
   ],
   imports: [

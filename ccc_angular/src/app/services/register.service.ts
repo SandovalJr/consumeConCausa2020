@@ -57,8 +57,10 @@ export class RegisterService {
   public registroEmpresa(Datos: any) {
     return this.http.post(`${this.baseUrl}registerEmpresa`, Datos);
   }
-  // LISTAR TODAS LAS EMPRESAS
-  // public ListClientes(): Observable<any> {
-  //   return this.http.get(`${this.baseUrl}listarclientes`);
-  // }
+  // LISTAR TODAS LAS EMPRESAS YA SEA APROBADAS (1) O NO APROBADAS (0)
+  public ListClientes(status: any): Observable<any> {
+    return this.http.get(`${this.baseUrl}ListarEmpresasPorStatus/${status}`);
+  }
+
+
 }

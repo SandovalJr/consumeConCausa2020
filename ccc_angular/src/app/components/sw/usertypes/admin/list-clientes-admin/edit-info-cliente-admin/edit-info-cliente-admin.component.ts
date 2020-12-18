@@ -10,7 +10,6 @@ import { FormControl, FormGroup } from "@angular/forms";
 
 import { RxwebValidators } from "@rxweb/reactive-form-validators";
 import { MessageErrorsService } from "../../../../../../services/messageError.service";
-import { log } from "console";
 
 // SWEETALERT 2
 // declarar variable de esta manera para que no marque err

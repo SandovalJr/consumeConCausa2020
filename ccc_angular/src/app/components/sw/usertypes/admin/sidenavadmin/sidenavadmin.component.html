@@ -59,14 +59,30 @@
           <mat-icon class="icono">{{ nav.icon }}</mat-icon>
           {{ nav.name }}</a
         >
-        <!-- Transporte -->
-        <!-- <p mat-list-item class="TSideNav">Transporte</p> -->
+
         <a class="BtnSideNav" mat-list-item (click)="ListarClientes()">
           <mat-icon class="icono">people_outline</mat-icon>
           <span>Clientes</span>
         </a>
 
-        <!-- <p mat-list-item class="TSideNav">Reportes</p> -->
+        <a
+          class="BtnSideNav"
+          mat-list-item
+          [matMenuTriggerFor]="RV"
+          aria-label="Example icon-button with a menu"
+        >
+          <mat-icon class="icono">store</mat-icon>
+          Empresas <mat-icon class="iconoArrow">arrow_drop_down</mat-icon>
+        </a>
+
+        <mat-menu #RV="matMenu">
+          <a mat-menu-item class="BtnSideNav" (click)="EmpresasAprobadas()">
+            <span>Empresas Autorizadas</span>
+          </a>
+          <a mat-menu-item class="BtnSideNav" (click)="EmpresasNoAprobadas()">
+            <span>Empresas No Autorizadas</span>
+          </a>
+        </mat-menu>
 
         <!-- LogOut -->
 
@@ -80,6 +96,7 @@
     <mat-sidenav-content>
       <router-outlet></router-outlet>
     </mat-sidenav-content>
+
   </mat-sidenav-container>
 </div>
 

@@ -13,6 +13,9 @@ import { AdminComponent } from "../components/sw/usertypes/admin/admin.component
 import { InicioadminComponent } from "../components/sw/usertypes/admin/inicioadmin/inicioadmin.component";
 import { ListClientesAdminComponent } from "../components/sw/usertypes/admin/list-clientes-admin/list-clientes-admin.component";
 import { EditInfoClienteAdminComponent } from "../components/sw/usertypes/admin/list-clientes-admin/edit-info-cliente-admin/edit-info-cliente-admin.component";
+import { EmpresasAceptadasComponent } from "../components/sw/usertypes/admin/listEmpresas/empresas-aceptadas/empresas-aceptadas.component";
+import { EmpresasEnEsperaComponent } from "../components/sw/usertypes/admin/listEmpresas/empresas-en-espera/empresas-en-espera.component";
+
 
 // CLIENTE
 import { ClienteComponent } from "../components/sw/usertypes/cliente/cliente.component";
@@ -50,6 +53,14 @@ const routes: Routes = [
         path: "EditarInformacioCliente/:id_cliente",
         component: EditInfoClienteAdminComponent,
       },
+      {
+        path:"EmpresasAceptadas/:status",
+        component: EmpresasAceptadasComponent,
+      },
+      {
+        path:"Empresas_EnEspera/:status",
+        component: EmpresasEnEsperaComponent,
+      }
     ],
   },
   {

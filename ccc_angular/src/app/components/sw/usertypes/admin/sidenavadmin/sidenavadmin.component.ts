@@ -38,4 +38,15 @@ export class SidenavadminComponent implements OnInit {
   public ListarClientes() {
     this.router.navigateByUrl(`/AdministradorCCC/Lista_Clientes`);
   }
+
+  public EmpresasAprobadas() {
+    const status = 1;
+    this.router.navigateByUrl(`/AdministradorCCC/EmpresasAceptadas/${status}`);
+  }
+
+  public EmpresasNoAprobadas() {
+    const status = 0;
+    this.router.navigateByUrl(`/AdministradorCCC/Empresas_EnEspera/${status}`);
+  }
+
 }
