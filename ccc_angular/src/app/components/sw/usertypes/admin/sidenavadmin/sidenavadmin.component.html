@@ -63,6 +63,34 @@
         <a
           class="BtnSideNav"
           mat-list-item
+          [matMenuTriggerFor]="DONACION"
+          aria-label="Example icon-button with a menu"
+        >
+          <mat-icon class="icono">touch_app</mat-icon>
+          Donaciones Productos
+          <mat-icon class="iconoArrow">arrow_drop_down</mat-icon>
+        </a>
+
+        <mat-menu #DONACION="matMenu">
+          <a
+            mat-menu-item
+            class="BtnSideNav"
+            (click)="DonacionesProductosPagados()"
+          >
+            <span>Donaciones pagadas</span>
+          </a>
+          <a
+            mat-menu-item
+            class="BtnSideNav"
+            (click)="DonacionesProductosNoPagados()"
+          >
+            <span>Donaciones no pagadas</span>
+          </a>
+        </mat-menu>
+
+        <a
+          class="BtnSideNav"
+          mat-list-item
           [matMenuTriggerFor]="VPROD"
           aria-label="Example icon-button with a menu"
         >

@@ -84,7 +84,7 @@ dprods.get("/ListDPPagado/:correo", (req, res) => {
 dprods.get("/EmpresaListDNP", (req, res) => {
   DProd.findAll({
     where: {
-      estatus_compra: "No Pagado",
+      estatus_compra: "NoPagado",
     },
   })
     .then((data) => {

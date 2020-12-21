@@ -26,7 +26,7 @@ ventasproductos.post("/RegisterVentaProductos", (req, res) => {
     total_compra: req.body.total_compra,
     imagen_producto: req.body.imagen_producto,
     fecha_compra: today,
-    estatus_compra: "No Pagado",
+    estatus_compra: "NoPagado",
     nombre_empresa: req.body.nombre_empresa,
   };
 
@@ -84,7 +84,7 @@ ventasproductos.get("/ListPVentas/:correo", (req, res) => {
 ventasproductos.get("/ListEmpresaVentasNoPagadas", (req, res) => {
   VentProdu.findAll({
     where: {
-      estatus_compra: "No Pagado",
+      estatus_compra: "NoPagado",
     },
   })
     .then((data) => {

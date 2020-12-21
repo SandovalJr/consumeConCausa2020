@@ -55,15 +55,6 @@ export class VentasProductosAdminComponent implements OnInit {
           console.log(empresas);
           this.VentasProductos = empresas;
           this.loading = true;
-
-          if ((this.VentasProductos = [])) {
-            Swal.fire({
-              icon: "error",
-              title: "Oops... no encontramos registros",
-              text: "Algo salio mal!",
-            });
-            this.loading = false;
-          }
         },
         (err) => {
           Swal.fire({
@@ -79,7 +70,7 @@ export class VentasProductosAdminComponent implements OnInit {
 
       this.VentaProductoService.VentasPagadas().subscribe(
         (empresas) => {
-          console.log(empresas);
+          // console.log(empresas);
           this.VentasProductos = empresas;
           this.loading = true;
         },

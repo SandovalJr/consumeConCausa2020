@@ -80,7 +80,7 @@ const routes: Routes = [
         component: ListProductosComponent,
       },
       {
-        path: "Donaciones_Productos",
+        path: "Donaciones_Productos/:estatus_compra",
         component: DonacionesProductosAdminComponent,
       },
       {
