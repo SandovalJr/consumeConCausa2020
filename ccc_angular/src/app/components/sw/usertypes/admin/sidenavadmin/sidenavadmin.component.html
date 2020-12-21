@@ -60,6 +60,33 @@
           {{ nav.name }}</a
         >
 
+        <a
+          class="BtnSideNav"
+          mat-list-item
+          [matMenuTriggerFor]="VPROD"
+          aria-label="Example icon-button with a menu"
+        >
+          <mat-icon class="icono">local_atm</mat-icon>
+          Ventas Productos
+          <mat-icon class="iconoArrow">arrow_drop_down</mat-icon>
+        </a>
+
+        <mat-menu #VPROD="matMenu">
+          <a
+            mat-menu-item
+            class="BtnSideNav"
+            (click)="VentasProductosPagados()"
+          >
+            <span>Compras pagadas</span>
+          </a>
+          <a
+            mat-menu-item
+            class="BtnSideNav"
+            (click)="VentasProductosNoPagados()"
+          >
+            <span>Compras no pagadas</span>
+          </a>
+        </mat-menu>
 
         <a
           class="BtnSideNav"

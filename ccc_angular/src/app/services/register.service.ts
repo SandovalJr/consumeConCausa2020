@@ -73,6 +73,17 @@ export class RegisterService {
   }
   // ACTUALIZAR INFORMACION CLIENTE
 
+  // APROBAR EMPRESAS ACTUALIZANDO STATUS DE 0 a 1
+  public AutorizarEmpresa(id_empresa: any, status: any): Observable<any> {
+
+    console.log("id empresa:"+id_empresa);
+    console.log("status"+status);
+    return this.http.put(
+      `${this.baseUrl}AprobarEmpresa/${id_empresa}`,
+      status
+    );
+  }
+
   // SIN PASSWORD
   public ActuInfoEmpresaSinPassword(
     id_empresa: any,
@@ -98,5 +109,4 @@ export class RegisterService {
       infoEmpresa
     );
   }
-
 }

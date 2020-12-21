@@ -15,6 +15,9 @@ import { ListClientesAdminComponent } from "../components/sw/usertypes/admin/lis
 import { EditInfoClienteAdminComponent } from "../components/sw/usertypes/admin/list-clientes-admin/edit-info-cliente-admin/edit-info-cliente-admin.component";
 import { EmpresasAceptadasComponent } from "../components/sw/usertypes/admin/listEmpresas/empresas-aceptadas/empresas-aceptadas.component";
 import { EmpresasEnEsperaComponent } from "../components/sw/usertypes/admin/listEmpresas/empresas-en-espera/empresas-en-espera.component";
+import { ListProductosComponent } from "../components/sw/usertypes/admin/list-productos/list-productos.component";
+import { DonacionesProductosAdminComponent } from "../components/sw/usertypes/admin/donaciones-productos-admin/donaciones-productos-admin.component";
+import { VentasProductosAdminComponent } from "../components/sw/usertypes/admin/ventas-productos-admin/ventas-productos-admin.component";
 
 // CLIENTE
 import { ClienteComponent } from "../components/sw/usertypes/cliente/cliente.component";
@@ -71,6 +74,18 @@ const routes: Routes = [
       {
         path: "EditarInformacionEmpresa/:id_empresa",
         component: EditarinfoEmpresaComponent,
+      },
+      {
+        path: "ListProductosComponent",
+        component: ListProductosComponent,
+      },
+      {
+        path: "Donaciones_Productos",
+        component: DonacionesProductosAdminComponent,
+      },
+      {
+        path: "Ventas_Productos/:estatus_compra",
+        component: VentasProductosAdminComponent,
       },
     ],
   },
