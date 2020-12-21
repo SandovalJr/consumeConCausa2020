@@ -69,21 +69,24 @@ export class SidenavadminComponent implements OnInit {
   }
   public VentasProductosNoPagados() {
     const estatus_compra = "NoPagado";
-
     this.router.navigateByUrl(
-      `/AdministradorCCC/Ventas_Productos/${estatus_compra}`
+      `/AdministradorCCC/Ventas_ProductosNP/${estatus_compra}`
     );
   }
   public DonacionesProductosPagados() {
+
     const estatus_compra = "Pagado";
     this.router.navigateByUrl(
       `/AdministradorCCC/Donaciones_Productos/${estatus_compra}`
     );
   }
   public DonacionesProductosNoPagados() {
+
     const estatus_compra = "NoPagado";
     this.router.navigateByUrl(
-      `/AdministradorCCC/Donaciones_Productos/${estatus_compra}`
+      `/AdministradorCCC/Donaciones_ProductosNP/${estatus_compra}`
     );
+    // window.location.reload();
+
   }
 }

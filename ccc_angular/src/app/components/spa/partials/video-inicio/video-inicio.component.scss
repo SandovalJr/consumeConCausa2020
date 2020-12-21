@@ -44,7 +44,7 @@ filter: saturate(180%)}
 #color2 {
   width: 100%;
   height: 100%;
-  background-image: linear-gradient(to bottom left, rgba(0, 0, 0, 0), #A5C7FF ,#C2FFE1);
+  background-image: linear-gradient(to bottom left, rgba(0, 0, 0, 0), #A5C7FF ,#A5C7FF);
 }
 
 #color2 > #colorTest > #body {
@@ -116,19 +116,19 @@ filter: saturate(180%)}
   }
   25% {
     opacity: 0.9;
-    background: #ffff;
+    background: #6e91ca;
   }
   50% {
     opacity: 0.9;
 
-    background: #C2FFE1;
+    background: #A5C7FF;
   }
   75% {
     opacity: 0.9;
-    background: #A5C7FF;
+    background: #6e91ca;
   }
   100% {
     opacity: 0.9;
-    background: #C2FFE1;
+    background: #A5C7FF;
   }
 }

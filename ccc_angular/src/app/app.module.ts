@@ -58,6 +58,8 @@ import { EditarinfoEmpresaComponent } from './components/sw/usertypes/admin/list
 import { ListProductosComponent } from './components/sw/usertypes/admin/list-productos/list-productos.component';
 import { VentasProductosAdminComponent } from './components/sw/usertypes/admin/ventas-productos-admin/ventas-productos-admin.component';
 import { DonacionesProductosAdminComponent } from './components/sw/usertypes/admin/donaciones-productos-admin/donaciones-productos-admin.component';
+import { DonacionesProductosAdminNOAPROBADOSComponent } from './components/sw/usertypes/admin/donaciones-productos-admin-noaprobados/donaciones-productos-admin-noaprobados.component';
+import { VentasProductosNPComponent } from './components/sw/usertypes/admin/ventas-productos-admin/ventas-productos-np/ventas-productos-np.component';
 
 @NgModule({
   declarations: [
@@ -102,6 +104,10 @@ import { DonacionesProductosAdminComponent } from './components/sw/usertypes/adm
     VentasProductosAdminComponent,
 
     DonacionesProductosAdminComponent,
+
+    DonacionesProductosAdminNOAPROBADOSComponent,
+
+    VentasProductosNPComponent,
 
   ],
   imports: [

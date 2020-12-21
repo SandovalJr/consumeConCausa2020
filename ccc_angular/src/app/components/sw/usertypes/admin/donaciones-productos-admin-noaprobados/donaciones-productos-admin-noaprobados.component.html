@@ -1,5 +1,5 @@
 <div class="centrartodo">
-  <p class="p-responsive titulo text-center">Empresas En Espera</p>
+  <p class="p-responsive titulo text-center">Donaciones {{ estatus_compra }}</p>
   <div class="centlineas">
     <div class="la"></div>
   </div>
@@ -60,36 +60,40 @@
     <table class="table">
       <thead>
         <tr class="ttabla">
-          <th>Imagen</th>
-          <th>Nombre de la Empresa</th>
-          <th>Organizacion</th>
-          <th>Giro Empresarial</th>
+          <th>N°</th>
           <th>Correo</th>
-          <th class="operaciones">Operaciones</th>
+          <th>Telefono</th>
+          <th>Tipo de Pago</th>
+          <th>Nombre Producto</th>
+          <th>Cantidad de producto</th>
+          <th>Total de compra</th>
+          <th>Fecha de compra</th>
+          <th>Estatus de compra</th>
+          <th>Nombre de la empresa</th>
+          <th>Organizacion donacion</th>
+          <!-- <th class="operaciones">Operaciones</th> -->
         </tr>
       </thead>
       <tbody hover="true">
         <tr
           appTablehover
           *ngFor="
-            let empresa of EmpresasAceptadas
+            let empresa of VentasProductos
               | filter: Buscador_Empresas
               | paginate: { itemsPerPage: 5, currentPage: pageActual }
           "
         >
-          <td class="tc"><img class="imgMedida" src="../../../../../../../assets/logo.png" alt=""></td>
-          <td class="tc">{{ empresa.nombre_empresa }}</td>
-          <td class="tc">{{ empresa.apellidos }}</td>
-          <td class="tc">{{ empresa.giro_empresa }}</td>
+          <td class="tc">{{ empresa.id_donacion }}</td>
           <td class="tc">{{ empresa.correo }}</td>
-          <td class="operacionesBoton">
-            <button
-              class="btn btn-outline-success mt-2"
-              (click)="aprobarEmpresa(empresa.id_empresa)"
-            >
-              <mat-icon>check_circle_outline </mat-icon>
-            </button>
-          </td>
+          <td class="tc">{{ empresa.telefono }}</td>
+          <td class="tc">{{ empresa.tipo_pago }}</td>
+          <td class="tc">{{ empresa.nombre_producto }}</td>
+          <td class="tc">{{ empresa.cantidad_producto }}</td>
+          <td class="tc">{{ empresa.total_compra }}</td>
+          <td class="tc">{{ empresa.fecha_compra | date: "shortDate" }}</td>
+          <td class="tc">{{ empresa.estatus_compra }}</td>
+          <td class="tc">{{ empresa.nombre_empresa }}</td>
+          <td class="tc">{{ empresa.organizacion_dona }}</td>
         </tr>
       </tbody>
     </table>

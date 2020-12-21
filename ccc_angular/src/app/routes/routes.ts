@@ -18,6 +18,8 @@ import { EmpresasEnEsperaComponent } from "../components/sw/usertypes/admin/list
 import { ListProductosComponent } from "../components/sw/usertypes/admin/list-productos/list-productos.component";
 import { DonacionesProductosAdminComponent } from "../components/sw/usertypes/admin/donaciones-productos-admin/donaciones-productos-admin.component";
 import { VentasProductosAdminComponent } from "../components/sw/usertypes/admin/ventas-productos-admin/ventas-productos-admin.component";
+import { DonacionesProductosAdminNOAPROBADOSComponent } from "../components/sw/usertypes/admin/donaciones-productos-admin-noaprobados/donaciones-productos-admin-noaprobados.component";
+import { VentasProductosNPComponent } from "../components/sw/usertypes/admin/ventas-productos-admin/ventas-productos-np/ventas-productos-np.component";
 
 // CLIENTE
 import { ClienteComponent } from "../components/sw/usertypes/cliente/cliente.component";
@@ -84,8 +86,16 @@ const routes: Routes = [
         component: DonacionesProductosAdminComponent,
       },
       {
+        path: "Donaciones_ProductosNP/:estatus_compra",
+        component: DonacionesProductosAdminNOAPROBADOSComponent,
+      },
+      {
         path: "Ventas_Productos/:estatus_compra",
         component: VentasProductosAdminComponent,
+      },
+      {
+        path: "Ventas_ProductosNP/:estatus_compra",
+        component: VentasProductosNPComponent,
       },
     ],
   },
