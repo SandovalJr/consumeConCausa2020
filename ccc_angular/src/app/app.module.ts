@@ -55,6 +55,7 @@ import { EmpresasAceptadasComponent } from './components/sw/usertypes/admin/list
 import { EmpresasEnEsperaComponent } from './components/sw/usertypes/admin/listEmpresas/empresas-en-espera/empresas-en-espera.component';
 import { VerInfoEmpresaComponent } from './components/sw/usertypes/admin/listEmpresas/ver-info-empresa/ver-info-empresa.component';
 import { EditarinfoEmpresaComponent } from './components/sw/usertypes/admin/listEmpresas/editarinfo-empresa/editarinfo-empresa.component';
+import { RxReactiveFormsModule } from "@rxweb/reactive-form-validators";
 
 @NgModule({
   declarations: [
@@ -115,6 +116,7 @@ import { EditarinfoEmpresaComponent } from './components/sw/usertypes/admin/list
     NgxPaginationModule,
     // Search
     Ng2SearchPipeModule,
+    RxReactiveFormsModule
   ],
   exports: [
     MatTabsModule,
