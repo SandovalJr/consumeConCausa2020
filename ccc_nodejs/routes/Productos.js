@@ -76,6 +76,23 @@ productos.get("/LPE/:nombre_empresa", (req, res) => {
       res.send("error" + errr);
     });
 });
+// Listar productos en general
+productos.get("/LPEGeneral", (req, res) => {
+  // console.log(req.body.nombre_empresa);
+  Producto.findAll({
+    where: {},
+  })
+    .then((data) => {
+      if (data) {
+        res.json(data);
+      } else {
+        res.send("data no hay");
+      }
+    })
+    .catch((errr) => {
+      res.send("error" + errr);
+    });
+});
 
 // Eliminar productos
 productos.get("/eliminarProducto/:id_producto", (req, res) => {
@@ -124,7 +141,6 @@ productos.put("/actualizarProducto/:id_producto", (req, res) => {
 
   console.log("---------------------");
   console.log(productoData);
-
 
   Producto.update(productoData, {
     where: {

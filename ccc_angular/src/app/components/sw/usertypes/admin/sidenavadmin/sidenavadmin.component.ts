@@ -20,6 +20,11 @@ export class SidenavadminComponent implements OnInit {
       route: "/AdministradorCCC/Lista_Clientes",
       icon: "people_outline",
     },
+    {
+      name: "Productos",
+      route: "/AdministradorCCC/ListProductosComponent",
+      icon: "book",
+    },
   ];
   private _mobileQueryListener: () => void;
   constructor(
@@ -53,5 +58,35 @@ export class SidenavadminComponent implements OnInit {
     const status = 0;
     this.router.navigateByUrl(`/AdministradorCCC/Empresas_EnEspera/${status}`);
   }
+  public ProductosEmpresas() {
+    this.router.navigateByUrl(`/AdministradorCCC/ListProductosComponent`);
+  }
+  public VentasProductosPagados() {
+    const estatus_compra = "Pagado";
+    this.router.navigateByUrl(
+      `/AdministradorCCC/Ventas_Productos/${estatus_compra}`
+    );
+  }
+  public VentasProductosNoPagados() {
+    const estatus_compra = "NoPagado";
+    this.router.navigateByUrl(
+      `/AdministradorCCC/Ventas_ProductosNP/${estatus_compra}`
+    );
+  }
+  public DonacionesProductosPagados() {
 
+    const estatus_compra = "Pagado";
+    this.router.navigateByUrl(
+      `/AdministradorCCC/Donaciones_Productos/${estatus_compra}`
+    );
+  }
+  public DonacionesProductosNoPagados() {
+
+    const estatus_compra = "NoPagado";
+    this.router.navigateByUrl(
+      `/AdministradorCCC/Donaciones_ProductosNP/${estatus_compra}`
+    );
+    // window.location.reload();
+
+  }
 }

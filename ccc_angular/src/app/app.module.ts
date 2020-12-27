@@ -56,6 +56,11 @@ import { EmpresasEnEsperaComponent } from './components/sw/usertypes/admin/listE
 import { VerInfoEmpresaComponent } from './components/sw/usertypes/admin/listEmpresas/ver-info-empresa/ver-info-empresa.component';
 import { EditarinfoEmpresaComponent } from './components/sw/usertypes/admin/listEmpresas/editarinfo-empresa/editarinfo-empresa.component';
 import { RxReactiveFormsModule } from "@rxweb/reactive-form-validators";
+import { ListProductosComponent } from './components/sw/usertypes/admin/list-productos/list-productos.component';
+import { VentasProductosAdminComponent } from './components/sw/usertypes/admin/ventas-productos-admin/ventas-productos-admin.component';
+import { DonacionesProductosAdminComponent } from './components/sw/usertypes/admin/donaciones-productos-admin/donaciones-productos-admin.component';
+import { DonacionesProductosAdminNOAPROBADOSComponent } from './components/sw/usertypes/admin/donaciones-productos-admin-noaprobados/donaciones-productos-admin-noaprobados.component';
+import { VentasProductosNPComponent } from './components/sw/usertypes/admin/ventas-productos-admin/ventas-productos-np/ventas-productos-np.component';
 
 @NgModule({
   declarations: [
@@ -94,6 +99,16 @@ import { RxReactiveFormsModule } from "@rxweb/reactive-form-validators";
     VerInfoEmpresaComponent,
 
     EditarinfoEmpresaComponent,
+
+    ListProductosComponent,
+
+    VentasProductosAdminComponent,
+
+    DonacionesProductosAdminComponent,
+
+    DonacionesProductosAdminNOAPROBADOSComponent,
+
+    VentasProductosNPComponent,
 
   ],
   imports: [

@@ -15,6 +15,11 @@ import { ListClientesAdminComponent } from "../components/sw/usertypes/admin/lis
 import { EditInfoClienteAdminComponent } from "../components/sw/usertypes/admin/list-clientes-admin/edit-info-cliente-admin/edit-info-cliente-admin.component";
 import { EmpresasAceptadasComponent } from "../components/sw/usertypes/admin/listEmpresas/empresas-aceptadas/empresas-aceptadas.component";
 import { EmpresasEnEsperaComponent } from "../components/sw/usertypes/admin/listEmpresas/empresas-en-espera/empresas-en-espera.component";
+import { ListProductosComponent } from "../components/sw/usertypes/admin/list-productos/list-productos.component";
+import { DonacionesProductosAdminComponent } from "../components/sw/usertypes/admin/donaciones-productos-admin/donaciones-productos-admin.component";
+import { VentasProductosAdminComponent } from "../components/sw/usertypes/admin/ventas-productos-admin/ventas-productos-admin.component";
+import { DonacionesProductosAdminNOAPROBADOSComponent } from "../components/sw/usertypes/admin/donaciones-productos-admin-noaprobados/donaciones-productos-admin-noaprobados.component";
+import { VentasProductosNPComponent } from "../components/sw/usertypes/admin/ventas-productos-admin/ventas-productos-np/ventas-productos-np.component";
 
 // CLIENTE
 import { ClienteComponent } from "../components/sw/usertypes/cliente/cliente.component";
@@ -71,6 +76,26 @@ const routes: Routes = [
       {
         path: "EditarInformacionEmpresa/:id_empresa",
         component: EditarinfoEmpresaComponent,
+      },
+      {
+        path: "ListProductosComponent",
+        component: ListProductosComponent,
+      },
+      {
+        path: "Donaciones_Productos/:estatus_compra",
+        component: DonacionesProductosAdminComponent,
+      },
+      {
+        path: "Donaciones_ProductosNP/:estatus_compra",
+        component: DonacionesProductosAdminNOAPROBADOSComponent,
+      },
+      {
+        path: "Ventas_Productos/:estatus_compra",
+        component: VentasProductosAdminComponent,
+      },
+      {
+        path: "Ventas_ProductosNP/:estatus_compra",
+        component: VentasProductosNPComponent,
       },
     ],
   },

@@ -12,11 +12,11 @@ const { response } = require("express");
 const fs = require("fs");
 const path = require("path");
 
-const cloudinary = require('cloudinary').v2;
+const cloudinary = require("cloudinary").v2;
 cloudinary.config({
-    cloud_name: 'wolf-code',
-    api_key: '622561925972199',
-    api_secret: '1QsmR8t0FawDTGPeYsXqkhnhL04'
+  cloud_name: "wolf-code",
+  api_key: "622561925972199",
+  api_secret: "1QsmR8t0FawDTGPeYsXqkhnhL04",
 });
 
 empresas.use(cors());
@@ -50,6 +50,22 @@ empresas.post("/registerEmpresa", async(req, res) => {
     body.password = bcrypt.hashSync(req.body.password, 10);
     body.status = 0;
     body.imagen = req.body.imagen.name;
+  if (req.files) {
+    archivo = req.files.imagen;
+    let nombreCortado = archivo.name.split(".");
+    extencion = nombreCortado[nombreCortado.length - 1];
+    extencionesValidas = ["png", "jpg", "gif", "jpeg"];
+
+    if (extencionesValidas.indexOf(extencion) < 0) {
+      return res.status(400).json({
+        ok: false,
+        err: {
+          message:
+            "Las extenciones permitidas son " + extencionesValidas.join(","),
+          ext: extencion,
+        },
+      });
+    }
 
     archivo = body.imagen.name;
 
@@ -58,6 +74,37 @@ empresas.post("/registerEmpresa", async(req, res) => {
     });
     //imagen.src = req.body.imagen.file;
 
+    cloudinary.uploader.upload(
+      archivo.tempFilePath,
+      { public_id: `Causas/${nombreArchivo}`, tags: `blog` },
+      function (err, image) {
+        if (err) res.send(err);
+        console.log("File upload with cloudinary");
+        // res.json(image);
+      }
+    );
+  }
+
+  const empresaData = {
+    nombre: req.body.nombre,
+    apellidos: req.body.apellidos,
+    nombre_empresa: req.body.nombre_empresa,
+    correo: req.body.correo,
+    telefono: req.body.telefono,
+    giro_empresa: req.body.giro_empresa,
+    direccion: req.body.direccion,
+    cp: req.body.cp,
+    ciudad: req.body.ciudad,
+    rfc: req.body.rfc,
+    descripcion: req.body.descripcion,
+    imagen: `${req.files.name}.${extencion}`, //req.body.imagen,
+    created: today,
+    link_fb: req.body.link_fb,
+    link_whatsapp:
+      `https://api.whatsapp.com/send?phone=52` + req.body.link_whatsapp,
+    password: req.body.password,
+    status: 0,
+  };
 
     let empresaDB = await Empresa.findOne({
       where: {
@@ -254,9 +301,10 @@ empresas.get("/ListarEmpresasPorStatus/:status", (req, res) => {
 });
 
 // Actualizar empresa a aprovada
+
 empresas.put("/AprobarEmpresa/:id_empresa", (req, res) => {
   const userData = {
-    status: req.body.status,
+        status: 1,
   };
   Empresa.update(userData, {
     where: {
@@ -270,6 +318,8 @@ empresas.put("/AprobarEmpresa/:id_empresa", (req, res) => {
       res.status(500).json(error);
     });
 });
+
+
 
 // Informacion de una Empresa
 empresas.get("/InformacionEmpresa/:id_empresa", (req, res) => {
