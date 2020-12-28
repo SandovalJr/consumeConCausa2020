@@ -26,6 +26,9 @@ import { ClienteComponent } from "../components/sw/usertypes/cliente/cliente.com
 import { InicioClienteComponent } from "../components/sw/usertypes/cliente/inicio-cliente/inicio-cliente.component";
 import { ComprasNOPagadasClientComponent } from "../components/sw/usertypes/cliente/compras-nopagadas-client/compras-nopagadas-client.component";
 import { ComprasPagadasClientComponent } from "../components/sw/usertypes/cliente/compras-pagadas-client/compras-pagadas-client.component";
+import { DonacionNOPagadaClienteComponent } from "../components/sw/usertypes/cliente/donacion-nopagada-cliente/donacion-nopagada-cliente.component";
+import { DonacionPagadaClienteComponent } from "../components/sw/usertypes/cliente/donacion-pagada-cliente/donacion-pagada-cliente.component";
+
 
 // EMPRESA
 import { EmpresaComponent } from "../components/sw/usertypes/empresa/empresa.component";
@@ -112,7 +115,18 @@ const routes: Routes = [
     children: [
       { path: "Inicio_Cliente", component: InicioClienteComponent },
       { path: "ComprasFinalizadas", component: ComprasPagadasClientComponent },
-      { path: "ComprasNoFinalizadas", component: ComprasNOPagadasClientComponent },
+      {
+        path: "ComprasNoFinalizadas",
+        component: ComprasNOPagadasClientComponent,
+      },
+      {
+        path: "DonacionesPagadas",
+        component: DonacionPagadaClienteComponent,
+      },
+      {
+        path: "DonacionesNoPagadas",
+        component: DonacionNOPagadaClienteComponent,
+      },
     ],
   },
 ];

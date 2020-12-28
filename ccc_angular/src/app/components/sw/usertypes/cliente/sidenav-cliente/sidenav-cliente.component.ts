@@ -48,6 +48,14 @@ export class SidenavClienteComponent implements OnInit {
     this.router.navigateByUrl(`/cliente/${id_cliente}/ComprasNoFinalizadas`);
   }
 
+  public goToDonacionPagada() {
+    const id_cliente = this.activatedRouter.snapshot.paramMap.get("id_cliente");
+    this.router.navigateByUrl(`/cliente/${id_cliente}/DonacionesPagadas`);
+  }
 
+  public goToDonacionNoPagada() {
+    const id_cliente = this.activatedRouter.snapshot.paramMap.get("id_cliente");
+    this.router.navigateByUrl(`/cliente/${id_cliente}/DonacionesNoPagadas`);
+  }
 
 }

@@ -90,6 +90,25 @@
           <mat-icon class="icono">money_off</mat-icon>
           <span> Compras No Pagadas </span>
         </a>
+        <a
+          class="BtnSideNav"
+          mat-list-item
+          routerLink="Home"
+          (click)="goToDonacionPagada()"
+        >
+          <mat-icon class="icono">shopping_cart</mat-icon>
+          <span> Donaciones Pagadas </span>
+        </a>
+
+        <a
+          class="BtnSideNav"
+          mat-list-item
+          routerLink="Home"
+          (click)="goToDonacionNoPagada()"
+        >
+          <mat-icon class="icono">remove_shopping_cart</mat-icon>
+          <span> Donaciones No Pagadas </span>
+        </a>
 
         <!-- <p mat-list-item class="TSideNav">Reportes</p> -->
 
