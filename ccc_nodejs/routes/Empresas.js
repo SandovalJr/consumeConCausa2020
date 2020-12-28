@@ -30,17 +30,26 @@ empresas.get("/", (req, res) => {
 });
 
 //Alta empresas
-empresas.post("/registerEmpresa", (req, res) => {
+empresas.post("/registerEmpresa", async(req, res) => {
   const today = new Date().toJSON();
+  const nowDate = today.toString();
   console.log(today);
+  console.log(req.body);
   let tipo = "";
 
-  console.log(req.files);
-
   let archivo;
-  let extencionesValidas;
-  let extencion;
+  // let imagen = JSON.stringify(req.body.imagen.file);
+  let imagen = (req.body.imagen.file);
+  let encod = Buffer.from(imagen, 'base64');
 
+  console.log('files', req.files);
+
+  try {
+    const body = req.body;
+    body.created = nowDate;
+    body.password = bcrypt.hashSync(req.body.password, 10);
+    body.status = 0;
+    body.imagen = req.body.imagen.name;
   if (req.files) {
     archivo = req.files.imagen;
     let nombreCortado = archivo.name.split(".");
@@ -58,7 +67,12 @@ empresas.post("/registerEmpresa", (req, res) => {
       });
     }
 
-    let nombreArchivo = `${id} - ${new Date().getMilliseconds()}`;
+    archivo = body.imagen.name;
+
+    let a = fs.writeFile(archivo, encod, {encoding: 'base64'}, function(err){
+      console.log('File Created')
+    });
+    //imagen.src = req.body.imagen.file;
 
     cloudinary.uploader.upload(
       archivo.tempFilePath,
@@ -92,37 +106,125 @@ empresas.post("/registerEmpresa", (req, res) => {
     status: 0,
   };
 
-  console.log("Empresa", empresaData);
-
-  empresaData.password = bcrypt.hashSync(req.body.password, 10);
-
-  Empresa.findOne({
-    where: {
-      correo: req.body.correo,
-    },
-  })
-    .then((empresa) => {
-      if (!empresa) {
-        Empresa.create(empresaData)
-          .then((empresa) => {
-            let token = jwt.sign(empresa.dataValues, process.env.SECRET_KEY, {
-              expiresIn: 1440,
-            });
-            res.json({ token });
-          })
-          .catch((err) => {
-            res.send("error: " + err);
-          });
-      } else {
-        return res.status(500).json({
-          ok: false,
-          err,
-        });
-      }
-    })
-    .catch((err) => {
-      res.send("error" + err);
+    let empresaDB = await Empresa.findOne({
+      where: {
+        correo: req.body.correo,
+      },
     });
+
+    if(!empresaDB){
+      Empresa.create(body).then(
+        (empresa) => {
+          let token = jwt.sign(empresa.dataValues, process.env.SECRET_KEY, {
+            expiresIn: 1440,
+          });
+
+          cloudinary.uploader.upload(encod.toString, {public_id: `Causa/${encod}`, tags: `blog`},
+            function(err, image){
+                if(err) res.send(err);
+                console.log('File upload with cloudinary');
+                //res.json(image);
+            }
+          );
+
+          res.json({
+            ok: true,
+            token,
+            empresa: body
+          });
+        }
+      )
+    }
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({
+      ok: false,
+      msg: "Contacte al administrador",
+    });
+  }
+
+  // if(req.files){
+  //   console.log('Entro')
+  //   archivo = req.files.imagen;
+  //   let nombreCortado = archivo.name.split('.');
+  //   extencion = nombreCortado[nombreCortado.length - 1];
+  //   extencionesValidas = ["png", "jpg", "gif", "jpeg"];
+
+  //   if (extencionesValidas.indexOf(extencion) < 0) {
+  //     return res.status(400).json({
+  //         ok: false,
+  //         err: {
+  //             message: "Las extenciones permitidas son " + extencionesValidas.join(","),
+  //             ext: extencion,
+  //         },
+  //     });
+  //   }
+
+  //   let nombreArchivo = `${id} - ${new Date().getMilliseconds()}`;
+
+  //   cloudinary.uploader.upload(archivo.tempFilePath, {public_id: `Causas/${nombreArchivo}`, tags: `blog`}, 
+  //       function(err, image){
+  //           if(err) res.send(err);
+  //           console.log('File upload with cloudinary');
+  //           // res.json(image);
+  //       }
+  //   )
+  // }
+
+  // const empresaData = {
+  //   nombre: req.body.nombre,
+  //   apellidos: req.body.apellidos,
+  //   nombre_empresa: req.body.nombre_empresa,
+  //   correo: req.body.correo,
+  //   telefono: req.body.telefono,
+  //   giro_empresa: req.body.giro_empresa,
+  //   direccion: req.body.direccion,
+  //   cp: req.body.cp,
+  //   ciudad: req.body.ciudad,
+  //   rfc: req.body.rfc,
+  //   descripcion: req.body.descripcion,
+  //   imagen: req.body.imagen, //`${req.files.name}.${extencion}`,//req.body.imagen,
+  //   created: nowDate,
+  //   link_fb: req.body.link_fb,
+  //   link_whatsapp:
+  //     `https://api.whatsapp.com/send?phone=52` + req.body.link_whatsapp,
+  //   password: req.body.password,
+  //   status: 0,
+  // };
+
+  // console.log("Empresa", empresaData);
+
+  // empresaData.password = bcrypt.hashSync(req.body.password, 10);
+
+  // Empresa.findOne({
+  //   where: {
+  //     correo: req.body.correo,
+  //   },
+  // })
+  //   .then((empresa) => {
+  //     if (!empresa) {
+  //       Empresa.create(empresaData)
+  //         .then((empresa) => {
+  //           console.log(empresa);
+  //           let token = jwt.sign(empresa.dataValues, process.env.SECRET_KEY, {
+  //             expiresIn: 1440,
+  //           });
+  //           return res.json(token);
+  //         })
+  //         .catch((err) => {
+  //           console.log(err);
+  //           return res.send("error: " + err);
+  //         });
+  //     } else {
+  //       return res.status(500).json({
+  //         ok: false,
+  //         err,
+  //       });
+  //     }
+  //   })
+  //   .catch((err) => {
+  //     res.send("error" + err);
+  //   });
 });
 
 empresas.post("/login", async (req, res = response) => {
