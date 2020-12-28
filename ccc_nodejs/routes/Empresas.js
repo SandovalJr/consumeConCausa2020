@@ -199,10 +199,9 @@ empresas.get("/ListarEmpresasPorStatus/:status", (req, res) => {
 });
 
 // Actualizar empresa a aprovada
-
 empresas.put("/AprobarEmpresa/:id_empresa", (req, res) => {
   const userData = {
-        status: 1,
+    status: 1,
   };
   Empresa.update(userData, {
     where: {
@@ -216,8 +215,6 @@ empresas.put("/AprobarEmpresa/:id_empresa", (req, res) => {
       res.status(500).json(error);
     });
 });
-
-
 
 // Informacion de una Empresa
 empresas.get("/InformacionEmpresa/:id_empresa", (req, res) => {
