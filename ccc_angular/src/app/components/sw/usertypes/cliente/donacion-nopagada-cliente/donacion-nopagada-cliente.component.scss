@@ -12,7 +12,9 @@
   display: flex;
   justify-content: center;
 }
-
+.imgMedida{
+  width: 100px;
+}
 .la {
   margin-top: 10px;
   width: 400px;
@@ -35,6 +37,32 @@
   width: 100%;
   display: flex;
   justify-content: center;
+}
+.contenedorload {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // width: 100%;
+  // height: 50%;
+  margin-top: 150px;
+}
+
+// centrar el buscador
+.centrar {
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+}
+
+.ttabla {
+  // margin-top: 30px;
+  background: #15c76f;
+  font-family: "Roboto Condensed", sans-serif;
+  color: white;
+  text-align: center;
+}
+.tc {
+  color: white;
 }
 
 @media (max-width: 541px) {

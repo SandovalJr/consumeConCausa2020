@@ -1,12 +1,9 @@
 import {
   Component,
   OnInit,
-  ViewChild,
-  ElementRef,
-  AfterViewInit,
 } from "@angular/core";
-import { Routes, Router } from "@angular/router";
-import { HttpClient, HttpClientModule } from "@angular/common/http";
+import {  Router } from "@angular/router";
+import { HttpClient } from "@angular/common/http";
 
 import {
   ProductoRegisterService,
