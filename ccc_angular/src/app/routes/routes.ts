@@ -24,6 +24,8 @@ import { VentasProductosNPComponent } from "../components/sw/usertypes/admin/ven
 // CLIENTE
 import { ClienteComponent } from "../components/sw/usertypes/cliente/cliente.component";
 import { InicioClienteComponent } from "../components/sw/usertypes/cliente/inicio-cliente/inicio-cliente.component";
+import { ComprasNOPagadasClientComponent } from "../components/sw/usertypes/cliente/compras-nopagadas-client/compras-nopagadas-client.component";
+import { ComprasPagadasClientComponent } from "../components/sw/usertypes/cliente/compras-pagadas-client/compras-pagadas-client.component";
 
 // EMPRESA
 import { EmpresaComponent } from "../components/sw/usertypes/empresa/empresa.component";
@@ -105,9 +107,13 @@ const routes: Routes = [
     children: [{ path: "Inicio_Empresa", component: InicioEmpresaComponent }],
   },
   {
-    path: "cliente/:id",
+    path: "cliente/:id_cliente",
     component: ClienteComponent,
-    children: [{ path: "Inicio_Cliente", component: InicioClienteComponent }],
+    children: [
+      { path: "Inicio_Cliente", component: InicioClienteComponent },
+      { path: "ComprasFinalizadas", component: ComprasPagadasClientComponent },
+      { path: "ComprasNoFinalizadas", component: ComprasNOPagadasClientComponent },
+    ],
   },
 ];
 

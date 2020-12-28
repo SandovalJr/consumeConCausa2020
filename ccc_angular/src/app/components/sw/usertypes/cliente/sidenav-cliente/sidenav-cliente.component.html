@@ -61,9 +61,34 @@
         >
         <!-- Transporte -->
         <!-- <p mat-list-item class="TSideNav">Transporte</p> -->
-        <a class="BtnSideNav" mat-list-item routerLink="Home">
-          <mat-icon class="icono">directions_car</mat-icon>
-          <span> Unidades / Autos</span>
+        <a
+          class="BtnSideNav"
+          mat-list-item
+          routerLink="Home"
+          (click)="goToInicio()"
+        >
+          <mat-icon class="icono">home</mat-icon>
+          <span> Inicio </span>
+        </a>
+
+        <a
+          class="BtnSideNav"
+          mat-list-item
+          routerLink="Home"
+          (click)="goToComprasFinalizadas()"
+        >
+          <mat-icon class="icono">monetization_on</mat-icon>
+          <span> Compras Pagadas </span>
+        </a>
+
+        <a
+          class="BtnSideNav"
+          mat-list-item
+          routerLink="Home"
+          (click)="goToNoFinalizado()"
+        >
+          <mat-icon class="icono">money_off</mat-icon>
+          <span> Compras No Pagadas </span>
         </a>
 
         <!-- <p mat-list-item class="TSideNav">Reportes</p> -->

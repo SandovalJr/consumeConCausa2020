@@ -60,6 +60,8 @@ import { VentasProductosAdminComponent } from './components/sw/usertypes/admin/v
 import { DonacionesProductosAdminComponent } from './components/sw/usertypes/admin/donaciones-productos-admin/donaciones-productos-admin.component';
 import { DonacionesProductosAdminNOAPROBADOSComponent } from './components/sw/usertypes/admin/donaciones-productos-admin-noaprobados/donaciones-productos-admin-noaprobados.component';
 import { VentasProductosNPComponent } from './components/sw/usertypes/admin/ventas-productos-admin/ventas-productos-np/ventas-productos-np.component';
+import { ComprasPagadasClientComponent } from './components/sw/usertypes/cliente/compras-pagadas-client/compras-pagadas-client.component';
+import { ComprasNOPagadasClientComponent } from './components/sw/usertypes/cliente/compras-nopagadas-client/compras-nopagadas-client.component';
 
 @NgModule({
   declarations: [
@@ -108,6 +110,10 @@ import { VentasProductosNPComponent } from './components/sw/usertypes/admin/vent
     DonacionesProductosAdminNOAPROBADOSComponent,
 
     VentasProductosNPComponent,
+
+    ComprasPagadasClientComponent,
+
+    ComprasNOPagadasClientComponent,
 
   ],
   imports: [

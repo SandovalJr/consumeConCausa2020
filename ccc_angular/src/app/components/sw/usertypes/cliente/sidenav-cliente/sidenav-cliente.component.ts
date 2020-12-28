@@ -1,26 +1,27 @@
 import { Component, OnInit, ChangeDetectorRef } from "@angular/core";
 import { MediaMatcher } from "@angular/cdk/layout";
-import { Routes, Router } from "@angular/router";
+import { Routes, Router, ActivatedRoute } from "@angular/router";
 @Component({
-  selector: 'app-sidenav-cliente',
-  templateUrl: './sidenav-cliente.component.html',
-  styleUrls: ['./sidenav-cliente.component.scss']
+  selector: "app-sidenav-cliente",
+  templateUrl: "./sidenav-cliente.component.html",
+  styleUrls: ["./sidenav-cliente.component.scss"],
 })
 export class SidenavClienteComponent implements OnInit {
-
   mobileQuery: MediaQueryList;
   fillerNav = [
-    {
-      name: "Inicio",
-      route: "/AdministradorCCC/Inicio_Administrador",
-      icon: "home",
-    },
+    // {
+    //   name: "Inicio",
+    //   route: "/AdministradorCCC/Inicio_Administrador",
+    //   icon: "home",
+    // },
   ];
+
   private _mobileQueryListener: () => void;
   constructor(
     changeDetectorRef: ChangeDetectorRef,
     media: MediaMatcher,
-    private router: Router
+    private router: Router,
+    private activatedRouter: ActivatedRoute
   ) {
     this.mobileQuery = media.matchMedia("(max-width: 600px)");
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
@@ -31,4 +32,22 @@ export class SidenavClienteComponent implements OnInit {
   }
   shouldRun = true;
   ngOnInit(): void {}
+
+  public goToInicio() {
+    const id_cliente = this.activatedRouter.snapshot.paramMap.get("id_cliente");
+    this.router.navigateByUrl(`/cliente/${id_cliente}/Inicio_Cliente`);
+  }
+
+  public goToComprasFinalizadas() {
+    const id_cliente = this.activatedRouter.snapshot.paramMap.get("id_cliente");
+    this.router.navigateByUrl(`/cliente/${id_cliente}/ComprasFinalizadas`);
+  }
+
+  public goToNoFinalizado() {
+    const id_cliente = this.activatedRouter.snapshot.paramMap.get("id_cliente");
+    this.router.navigateByUrl(`/cliente/${id_cliente}/ComprasNoFinalizadas`);
+  }
+
+
+
 }
