@@ -47,7 +47,7 @@ ventasproductos.get("/ListNPVentas/:correo", (req, res) => {
   VentProdu.findAll({
     where: {
       correo: req.params.correo,
-      estatus_compra: "No Pagado",
+      estatus_compra: "NoPagado",
     },
   })
     .then((data) => {
@@ -82,8 +82,13 @@ ventasproductos.get("/ListPVentas/:correo", (req, res) => {
     });
 });
 
-
 //-----------------  EMPRESAS --------------------------//
+
+
+
+
+
+//--------------------- ADMINISTRADOR --------------------------//
 
 //(list)  Mostrar las donaciones a las empresas en general (aun no pagadas)
 ventasproductos.get("/ListEmpresaVentasNoPagadas", (req, res) => {

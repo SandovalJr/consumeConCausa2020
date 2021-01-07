@@ -23,7 +23,7 @@ const Swal = require("sweetalert2");
   styleUrls: ["./donacion-nopagada-cliente.component.scss"],
 })
 export class DonacionNOPagadaClienteComponent implements OnInit {
-  public DonacionesListadas: Array<any> = [];
+  public DonacionesListadas;
   loading: boolean = false;
   Buscador_Clientes: any;
   pageActual: number = 1;
@@ -71,6 +71,18 @@ export class DonacionNOPagadaClienteComponent implements OnInit {
           // console.log(products);
           this.DonacionesListadas = products;
           this.loading = true;
+          if (this.DonacionesListadas < 1) {
+            Swal.fire({
+              title: "<strong>Informacion</strong>",
+              icon: "info",
+              html: "No disponible",
+              showCloseButton: true,
+              focusConfirm: false,
+              confirmButtonText: '<i class="fa fa-thumbs-up"></i> ok!',
+              confirmButtonAriaLabel: "Thumbs up, great!",
+            });
+            this.loading = false;
+          }
         },
         (err) => {
           Swal.fire({

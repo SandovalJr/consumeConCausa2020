@@ -79,6 +79,7 @@ export class ComprasPagadasClientComponent implements OnInit {
             confirmButtonText: '<i class="fa fa-thumbs-up"></i> ok!',
             confirmButtonAriaLabel: "Thumbs up, great!",
           });
+          this.loading = false;
         }
       },
       (err) => {

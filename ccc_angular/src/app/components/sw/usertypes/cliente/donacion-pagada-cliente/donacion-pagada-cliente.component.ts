@@ -17,15 +17,13 @@ import {
 declare var require: any;
 const Swal = require("sweetalert2");
 
-
 @Component({
-  selector: 'app-donacion-pagada-cliente',
-  templateUrl: './donacion-pagada-cliente.component.html',
-  styleUrls: ['./donacion-pagada-cliente.component.scss']
+  selector: "app-donacion-pagada-cliente",
+  templateUrl: "./donacion-pagada-cliente.component.html",
+  styleUrls: ["./donacion-pagada-cliente.component.scss"],
 })
 export class DonacionPagadaClienteComponent implements OnInit {
-
-  public DonacionesListadas: Array<any> = [];
+  public DonacionesListadas;
   loading: boolean = false;
   Buscador_Clientes: any;
   pageActual: number = 1;
@@ -66,22 +64,33 @@ export class DonacionPagadaClienteComponent implements OnInit {
 
     this.DonacionesListadas = [];
 
-    this.donacionService
-      .DonacionesPagadasPorCorreo(correoinfcliente)
-      .subscribe(
-        (products) => {
-          // console.log(products);
-          this.DonacionesListadas = products;
-          this.loading = true;
-        },
-        (err) => {
+    this.donacionService.DonacionesPagadasPorCorreo(correoinfcliente).subscribe(
+      (products) => {
+        // console.log(products);
+        this.DonacionesListadas = products;
+        this.loading = true;
+
+        if (this.DonacionesListadas < 1) {
           Swal.fire({
-            icon: "error",
-            title: "Oops...",
-            text: "Algo salio mal!",
+            title: "<strong>Informacion</strong>",
+            icon: "info",
+            html: "No disponible",
+            showCloseButton: true,
+            focusConfirm: false,
+            confirmButtonText: '<i class="fa fa-thumbs-up"></i> ok!',
+            confirmButtonAriaLabel: "Thumbs up, great!",
           });
-          console.error(err);
+          this.loading = false;
         }
-      );
+      },
+      (err) => {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Algo salio mal!",
+        });
+        console.error(err);
+      }
+    );
   }
 }
