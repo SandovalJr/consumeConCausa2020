@@ -44,21 +44,29 @@ export class SidenavClienteComponent implements OnInit {
 
   public goToComprasFinalizadas() {
     const id_cliente = this.activatedRouter.snapshot.paramMap.get("id_cliente");
-    this.router.navigateByUrl(`/cliente/${id_cliente}/ComprasFinalizadas`);
+    this.router.navigateByUrl(
+      `/cliente/${id_cliente}/ComprasFinalizadas/${id_cliente}`
+    );
   }
 
   public goToNoFinalizado() {
     const id_cliente = this.activatedRouter.snapshot.paramMap.get("id_cliente");
-    this.router.navigateByUrl(`/cliente/${id_cliente}/ComprasNoFinalizadas`);
+    this.router.navigateByUrl(
+      `/cliente/${id_cliente}/ComprasNoFinalizadas/${id_cliente}`
+    );
   }
 
   public goToDonacionPagada() {
     const id_cliente = this.activatedRouter.snapshot.paramMap.get("id_cliente");
-    this.router.navigateByUrl(`/cliente/${id_cliente}/DonacionesPagadas/${id_cliente}`);
+    this.router.navigateByUrl(
+      `/cliente/${id_cliente}/DonacionesPagadas/${id_cliente}`
+    );
   }
 
   public goToDonacionNoPagada() {
     const id_cliente = this.activatedRouter.snapshot.paramMap.get("id_cliente");
-    this.router.navigateByUrl(`/cliente/${id_cliente}/DonacionesNoPagadas/${id_cliente}`);
+    this.router.navigateByUrl(
+      `/cliente/${id_cliente}/DonacionesNoPagadas/${id_cliente}`
+    );
   }
 }

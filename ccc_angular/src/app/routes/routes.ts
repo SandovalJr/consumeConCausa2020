@@ -113,9 +113,9 @@ const routes: Routes = [
     component: ClienteComponent,
     children: [
       { path: "Inicio_Cliente/:id_cliente", component: InicioClienteComponent },
-      { path: "ComprasFinalizadas", component: ComprasPagadasClientComponent },
+      { path: "ComprasFinalizadas/:id_cliente", component: ComprasPagadasClientComponent },
       {
-        path: "ComprasNoFinalizadas",
+        path: "ComprasNoFinalizadas/:id_cliente",
         component: ComprasNOPagadasClientComponent,
       },
       {
