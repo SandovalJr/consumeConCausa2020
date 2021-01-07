@@ -29,7 +29,6 @@ import { ComprasPagadasClientComponent } from "../components/sw/usertypes/client
 import { DonacionNOPagadaClienteComponent } from "../components/sw/usertypes/cliente/donacion-nopagada-cliente/donacion-nopagada-cliente.component";
 import { DonacionPagadaClienteComponent } from "../components/sw/usertypes/cliente/donacion-pagada-cliente/donacion-pagada-cliente.component";
 
-
 // EMPRESA
 import { EmpresaComponent } from "../components/sw/usertypes/empresa/empresa.component";
 import { InicioEmpresaComponent } from "../components/sw/usertypes/empresa/inicio-empresa/inicio-empresa.component";
@@ -113,18 +112,18 @@ const routes: Routes = [
     path: "cliente/:id_cliente",
     component: ClienteComponent,
     children: [
-      { path: "Inicio_Cliente", component: InicioClienteComponent },
+      { path: "Inicio_Cliente/:id_cliente", component: InicioClienteComponent },
       { path: "ComprasFinalizadas", component: ComprasPagadasClientComponent },
       {
         path: "ComprasNoFinalizadas",
         component: ComprasNOPagadasClientComponent,
       },
       {
-        path: "DonacionesPagadas",
+        path: "DonacionesPagadas/:id_cliente",
         component: DonacionPagadaClienteComponent,
       },
       {
-        path: "DonacionesNoPagadas",
+        path: "DonacionesNoPagadas/:id_cliente",
         component: DonacionNOPagadaClienteComponent,
       },
     ],

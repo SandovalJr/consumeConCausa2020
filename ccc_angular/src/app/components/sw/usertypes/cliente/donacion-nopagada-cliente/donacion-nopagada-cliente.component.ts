@@ -1,7 +1,11 @@
 import { Component, OnInit } from "@angular/core";
-import { Router } from "@angular/router";
+import { Router, ActivatedRoute } from "@angular/router";
 import { HttpClient } from "@angular/common/http";
-
+import {
+  ClienteService,
+  TokenPayload,
+  UserDetails,
+} from "../../../../../services/registerCliente.service";
 import {
   DONACIONProductosService,
   TokenPayloadE,
@@ -23,34 +27,59 @@ export class DonacionNOPagadaClienteComponent implements OnInit {
   loading: boolean = false;
   Buscador_Clientes: any;
   pageActual: number = 1;
+  public inforCliente: TokenPayload;
 
   constructor(
     private router: Router,
     private donacionService: DONACIONProductosService,
-    private http: HttpClient
+    private http: HttpClient,
+    private serviceCliente: ClienteService,
+    private activatedRouter: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
-    this.ListDonacionesNoPagadas();
+    this.infocliente();
   }
 
-  public ListDonacionesNoPagadas() {
-    this.DonacionesListadas = [];
+  public infocliente() {
+    const id_cliente = this.activatedRouter.snapshot.paramMap.get("id_cliente");
+    // console.log("EL ID ES: " + id_cliente);
 
-    this.donacionService.DonacionesNoPagadas().subscribe(
-      (products) => {
-        console.log(products);
-        this.DonacionesListadas = products;
-        this.loading = true;
+    this.serviceCliente.ListInformacionCliente(id_cliente).subscribe(
+      (dataCliente) => {
+        this.inforCliente = dataCliente;
+        // console.log(this.inforCliente[0].correo);
+        // console.log(emanilParam);
+        this.ListDonacionesNoPagadas(this.inforCliente[0].correo);
       },
       (err) => {
-        Swal.fire({
-          icon: "error",
-          title: "Oops...",
-          text: "Algo salio mal!",
-        });
-        console.error(err);
+        console.log(err);
       }
     );
+    // const emanilParam = this.inforCliente[0].correo;
+  }
+
+  public ListDonacionesNoPagadas(correoinfcliente: any) {
+    // console.log("paso a el metodo ts: "+correoinfcliente);
+
+    this.DonacionesListadas = [];
+
+    this.donacionService
+      .DonacionesNoPagadasPorNombreDeeMPRESA(correoinfcliente)
+      .subscribe(
+        (products) => {
+          // console.log(products);
+          this.DonacionesListadas = products;
+          this.loading = true;
+        },
+        (err) => {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Algo salio mal!",
+          });
+          console.error(err);
+        }
+      );
   }
 }

@@ -35,7 +35,11 @@ export class SidenavClienteComponent implements OnInit {
 
   public goToInicio() {
     const id_cliente = this.activatedRouter.snapshot.paramMap.get("id_cliente");
-    this.router.navigateByUrl(`/cliente/${id_cliente}/Inicio_Cliente`);
+    // console.log(id_cliente);
+
+    this.router.navigateByUrl(
+      `/cliente/${id_cliente}/Inicio_Cliente/${id_cliente}`
+    );
   }
 
   public goToComprasFinalizadas() {
@@ -50,12 +54,11 @@ export class SidenavClienteComponent implements OnInit {
 
   public goToDonacionPagada() {
     const id_cliente = this.activatedRouter.snapshot.paramMap.get("id_cliente");
-    this.router.navigateByUrl(`/cliente/${id_cliente}/DonacionesPagadas`);
+    this.router.navigateByUrl(`/cliente/${id_cliente}/DonacionesPagadas/${id_cliente}`);
   }
 
   public goToDonacionNoPagada() {
     const id_cliente = this.activatedRouter.snapshot.paramMap.get("id_cliente");
-    this.router.navigateByUrl(`/cliente/${id_cliente}/DonacionesNoPagadas`);
+    this.router.navigateByUrl(`/cliente/${id_cliente}/DonacionesNoPagadas/${id_cliente}`);
   }
-
 }

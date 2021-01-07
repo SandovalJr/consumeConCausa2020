@@ -40,7 +40,7 @@ dprods.post("/registerDonacionProduct", (req, res) => {
     });
 });
 
-//(list)  Mostrar las compras de cada cliente estatus no pagado
+//(list)  Mostrar las donaciones de cada cliente estatus no pagado
 dprods.get("/ListDPNP/:correo", (req, res) => {
   DProd.findAll({
     where: {
@@ -60,7 +60,7 @@ dprods.get("/ListDPNP/:correo", (req, res) => {
     });
 });
 
-//(list)  Mostrar las compras de cada cliente estatus pagado
+//(list)  Mostrar las donaciones de cada cliente estatus pagado
 dprods.get("/ListDPPagado/:correo", (req, res) => {
   DProd.findAll({
     where: {
@@ -85,6 +85,25 @@ dprods.get("/EmpresaListDNP", (req, res) => {
   DProd.findAll({
     where: {
       estatus_compra: "NoPagado",
+    },
+  })
+    .then((data) => {
+      if (data) {
+        res.json(data);
+      } else {
+        res.send("data no hay");
+      }
+    })
+    .catch((errr) => {
+      res.send("error" + errr);
+    });
+});
+// DONACIONES NO PAGADAS POR CORREO 
+dprods.get("/EmpresaListDNP/:correo", (req, res) => {
+  DProd.findAll({
+    where: {
+      estatus_compra: "NoPagado",
+      	correo: req.params.correo,
     },
   })
     .then((data) => {

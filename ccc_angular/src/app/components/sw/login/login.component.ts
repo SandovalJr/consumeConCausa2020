@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
           // Swal.fire('Cargando', 'Iniciando Sesion', 'info');
           //Navegacion
           this.router.navigateByUrl(
-            `/cliente/${resp.datos.id_cliente}/Inicio_Cliente`
+            `/cliente/Inicio_Cliente/${resp.datos.id_cliente}`
           );
         } else if (!resp.datos.status) {
           Swal.fire("Empresa no validada", "Espere validacion", "warning");
