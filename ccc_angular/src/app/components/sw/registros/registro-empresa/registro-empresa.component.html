@@ -10,8 +10,8 @@
     </div>
   </div>
   <!-- Extended material form grid -->
-  <form>
-    <ng-container [formGroup]="formulario">
+  <form [formGroup]="formulario" (ngSubmit)="registroEmpresa()" enctype="multipart/form-data">
+    <ng-container>
       <!-- Grid row -->
       <div class="form-row margenform">
         <!-- Grid column -->
@@ -421,7 +421,9 @@
                 'is-valid': ValidarFormulario('imagen').error == false,
                 'is-invalid': ValidarFormulario('imagen').error == true
               }"
+              (change)="cambiarImagen($event.target.files[0])"
             />
+            <!--[writeFile]="true" (change)="onChangeFile($event)"-->
           </div>
           <div
             *ngIf="ValidarFormulario('imagen').error"
@@ -440,7 +442,6 @@
         gradient="aqua"
         rounded="true"
         mdbWavesEffect
-        (click)="registroEmpresa()"
       >
         Registrar
       </button>

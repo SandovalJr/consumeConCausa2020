@@ -7,6 +7,8 @@ const morgan = require("morgan");
 let port = process.env.PORT || 3000; //puerto donde correrá
 
 app.use(cors());
+app.use(express.json({limit: '25mb'}));
+app.use(express.urlencoded({limit: '25mb'}));
 // app.use(
 //     bodyParser.urlencoded({
 //         extended: false
@@ -25,6 +27,7 @@ app.use("/api/empresa", require("./routes/Empresas"));
 app.use("/api/productos", require("./routes/Productos"));
 app.use("/api/donacion_productos", require("./routes/Donacion_Productos"));
 app.use("/api/ventas_productos", require("./routes/Ventas_Productos"));
+app.use("/api/upload", require("./routes/Upload"));
 
 // Start listening
 app.listen(port, function () {

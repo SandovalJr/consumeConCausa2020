@@ -31,9 +31,17 @@ export class LoginComponent implements OnInit {
         if (resp.tipo == "cliente") {
           // Swal.fire('Cargando', 'Iniciando Sesion', 'info');
           //Navegacion
-          this.router.navigateByUrl(
-            `/cliente/${resp.datos.id_cliente}/Inicio_Cliente`
-          );
+          if(resp.datos.admin){
+            console.log('Admin')
+            this.router.navigateByUrl(
+              `/AdministradorCCC/Inicio_Administrador`
+            );
+          }else{
+            console.log('Cliente')
+            this.router.navigateByUrl(
+              `/cliente/${resp.datos.id_cliente}/Inicio_Cliente`
+            );
+          }
         } else if (!resp.datos.status) {
           Swal.fire("Empresa no validada", "Espere validacion", "warning");
         } else {

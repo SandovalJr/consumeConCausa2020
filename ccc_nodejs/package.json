@@ -24,6 +24,7 @@
     "nodemon": "^2.0.6",
     "promise-mysql": "^5.0.1",
     "sequelize": "^6.3.5",
-    "tedious": "^9.2.1"
+    "tedious": "^9.2.1",
+    "uuid": "^8.3.2"
   }
 }
