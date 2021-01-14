@@ -24,6 +24,10 @@ import { VentasProductosNPComponent } from "../components/sw/usertypes/admin/ven
 // CLIENTE
 import { ClienteComponent } from "../components/sw/usertypes/cliente/cliente.component";
 import { InicioClienteComponent } from "../components/sw/usertypes/cliente/inicio-cliente/inicio-cliente.component";
+import { ComprasNOPagadasClientComponent } from "../components/sw/usertypes/cliente/compras-nopagadas-client/compras-nopagadas-client.component";
+import { ComprasPagadasClientComponent } from "../components/sw/usertypes/cliente/compras-pagadas-client/compras-pagadas-client.component";
+import { DonacionNOPagadaClienteComponent } from "../components/sw/usertypes/cliente/donacion-nopagada-cliente/donacion-nopagada-cliente.component";
+import { DonacionPagadaClienteComponent } from "../components/sw/usertypes/cliente/donacion-pagada-cliente/donacion-pagada-cliente.component";
 
 // EMPRESA
 import { EmpresaComponent } from "../components/sw/usertypes/empresa/empresa.component";
@@ -105,9 +109,24 @@ const routes: Routes = [
     children: [{ path: "Inicio_Empresa", component: InicioEmpresaComponent }],
   },
   {
-    path: "cliente/:id",
+    path: "cliente/:id_cliente",
     component: ClienteComponent,
-    children: [{ path: "Inicio_Cliente", component: InicioClienteComponent }],
+    children: [
+      { path: "Inicio_Cliente/:id_cliente", component: InicioClienteComponent },
+      { path: "ComprasFinalizadas/:id_cliente", component: ComprasPagadasClientComponent },
+      {
+        path: "ComprasNoFinalizadas/:id_cliente",
+        component: ComprasNOPagadasClientComponent,
+      },
+      {
+        path: "DonacionesPagadas/:id_cliente",
+        component: DonacionPagadaClienteComponent,
+      },
+      {
+        path: "DonacionesNoPagadas/:id_cliente",
+        component: DonacionNOPagadaClienteComponent,
+      },
+    ],
   },
 ];
 

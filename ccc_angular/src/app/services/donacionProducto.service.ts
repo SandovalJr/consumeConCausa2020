@@ -51,11 +51,25 @@ export class DONACIONProductosService {
 
   constructor(private http: HttpClient) {}
 
-  // Lista de las ventas pagadas y no pagadas
+  // Lista de las donaciones pagadas y no pagadas
   public DonacionesNoPagadas(): Observable<any> {
     return this.http.get(`${this.baseUrl}EmpresaListDNP`);
   }
   public DonacionesPagadas(): Observable<any> {
     return this.http.get(`${this.baseUrl}EmpresaListDPagado`);
   }
+
+  // donaciones no pagadas por correo (cliente)
+  public DonacionesNoPagadasPorNombreDeeMPRESA(correo: any): Observable<any> {
+    // console.log("servicio "+ correo);
+    return this.http.get(`${this.baseUrl}EmpresaListDNP/${correo}`);
+  }
+
+  // donaciones pagadas por correo (cliente)
+  public DonacionesPagadasPorCorreo(correo: any): Observable<any> {
+    return this.http.get(`${this.baseUrl}ListDPPagado/${correo}`);
+  }
+
+
+
 }

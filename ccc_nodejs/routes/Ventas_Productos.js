@@ -40,12 +40,14 @@ ventasproductos.post("/RegisterVentaProductos", (req, res) => {
     });
 });
 
+//-----------------  CLIENTE --------------------------//
+
 //(list)  Mostrar las compras de cada cliente estatus no pagado
 ventasproductos.get("/ListNPVentas/:correo", (req, res) => {
   VentProdu.findAll({
     where: {
       correo: req.params.correo,
-      estatus_compra: "No Pagado",
+      estatus_compra: "NoPagado",
     },
   })
     .then((data) => {
@@ -79,6 +81,14 @@ ventasproductos.get("/ListPVentas/:correo", (req, res) => {
       res.send("error" + errr);
     });
 });
+
+//-----------------  EMPRESAS --------------------------//
+
+
+
+
+
+//--------------------- ADMINISTRADOR --------------------------//
 
 //(list)  Mostrar las donaciones a las empresas en general (aun no pagadas)
 ventasproductos.get("/ListEmpresaVentasNoPagadas", (req, res) => {
@@ -140,5 +150,5 @@ ventasproductos.put("/actualizarAPagado/:id_ventap", (req, res) => {
 module.exports = ventasproductos;
 // ESTUS:
 
-// PAGADO
-// ESPERA
+// Pagado
+// NoPagado

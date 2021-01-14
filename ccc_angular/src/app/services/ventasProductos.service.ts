@@ -56,4 +56,16 @@ export class VentaProductosService {
   public VentasPagadas(): Observable<any> {
     return this.http.get(`${this.baseUrl}ListEmpresasVentasPagadas`);
   }
+
+  //-------------  CLIENTES  ------------//
+  // clientes con compras pagadas
+  public ClientVentasPagadas(correo: any) {
+    return this.http.get(`${this.baseUrl}ListPVentas/${correo}`);
+  }
+
+  // clientes con compras no pagadas
+  public ClientVentasNOPagadas(correo: any) {
+    return this.http.get(`${this.baseUrl}ListNPVentas/${correo}`);
+  }
+
 }

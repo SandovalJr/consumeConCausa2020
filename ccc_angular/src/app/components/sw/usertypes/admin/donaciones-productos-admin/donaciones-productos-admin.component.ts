@@ -67,7 +67,7 @@ export class DonacionesProductosAdminComponent implements OnInit {
 
       this.donacionservice.DonacionesPagadas().subscribe(
         (empresas) => {
-          // console.log(empresas);
+          console.log(empresas);
           this.VentasProductos = empresas;
           this.loading = true;
         },
