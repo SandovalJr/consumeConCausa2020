@@ -23,6 +23,8 @@ const Swal = require("sweetalert2");
   styleUrls: ["./inicio-cliente.component.scss"],
 })
 export class InicioClienteComponent implements OnInit {
+  public inforCliente: TokenPayload;
+
   constructor(
     private router: Router,
     private donacionService: DONACIONProductosService,
@@ -37,7 +39,19 @@ export class InicioClienteComponent implements OnInit {
 
   public tomaid() {
     const id_cliente = this.activatedRouter.snapshot.paramMap.get("id_cliente");
-    // console.log("EL ID ES: " + id_cliente);
-  }
+    console.log("EL ID ES: " + id_cliente);
+    this.serviceCliente.ListInformacionCliente(id_cliente).subscribe(
+      (dataCliente) => {
+        this.inforCliente = dataCliente;
+        console.log(this.inforCliente);
 
+        // console.log(this.inforCliente[0].correo);
+        console.log("hola");
+        console.log(dataCliente);
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
+  }
 }
